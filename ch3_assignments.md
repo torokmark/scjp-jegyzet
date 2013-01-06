@@ -24,14 +24,14 @@ Octal integers use only the digits 0 to 7. You represent an integer in octal for
 #### Hexadecimal Literals
 Hexadecimal (hex for short) numbers are constructed using 16 distinct symbols. Because we never invented single digit symbols for the numbers 10 through 15, we use alphabetic characters to represent these digits.
     
-    `0 1 2 3 4 5 6 7 8 9 a b c d e f`
+    0 1 2 3 4 5 6 7 8 9 a b c d e f
 
 Including the prefix 0x.
 
 ``` java
-    int x = 0X0001;
-    int y = 0x7fffffff;
-    int z = 0xDeadCafe;
+int x = 0X0001;
+int y = 0x7fffffff;
+int z = 0xDeadCafe;
 ```
 
 All three integer literals are defined as `int` by default.
@@ -40,15 +40,15 @@ All three integer literals are defined as `int` by default.
 Floating-point literals are defined as double (64 bits) by default. You must attach the suffix F or f to the number.
 
 ``` java
-    float f = 23.467890;           // Compiler error, possible loss of precision
-    float g = 49837849.029847F;    // OK; has the suffix "F"
+float f = 23.467890;           // Compiler error, possible loss of precision
+float g = 49837849.029847F;    // OK; has the suffix "F"
 ```
 
 Optionally attach a D or d to double literals, but it is not necessary because this is the default behavior.
 
 ``` java
-    double d = 110599.995011D;  // Optional, not required
-    double g = 987.897;         // No 'D' suffix, but OK because the literal is a double by default
+double d = 110599.995011D;  // Optional, not required
+double g = 987.897;         // No 'D' suffix, but OK because the literal is a double by default
 ```
 
 #### Boolean Literals
@@ -58,13 +58,13 @@ Boolean literals are the source code representation for boolean values. A boolea
 A char literal is represented by a single character in single quotes.
 
 ``` java
-    char a = 'a';`  
-    char b = '@';`  
-    char letterN = '\u004E';   // The letter 'N'
-    char a = 0x892;             // hexadecimal literal
-    char b = 982;               // int literal
-    char c = (char)70000;       // The cast is required; 70000 is out of char range
-    char d = (char) -98;        // Ridiculous, but legal
+char a = 'a';  
+char b = '@';
+char letterN = '\u004E';   // The letter 'N'
+char a = 0x892;             // hexadecimal literal
+char b = 982;               // int literal
+char c = (char)70000;       // The cast is required; 70000 is out of char range
+char d = (char) -98;        // Ridiculous, but legal
 ```
 
 #### Literal Values for Strings

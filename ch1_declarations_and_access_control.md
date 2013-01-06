@@ -18,7 +18,7 @@ A Java program is mostly a collection of objects talking to other objects by inv
 * No Java keyword can be identifier.
 * Identifiers in Java are case-sensitive; foo and FOO are two different identifiers.
 
-##### Legal and illegal identifiers
+#### Legal and illegal identifiers
 
 ``` java
     int _a;   
@@ -45,7 +45,7 @@ A Java program is mostly a collection of objects talking to other objects by inv
 
 ### JavaBeans Standards
 
-##### JavaBean Property Naming Rules
+#### JavaBean Property Naming Rules
 
 * If the property is not a boolean, the getter method's prefix must be get. For example, getSize().
 * If the property is a boolean, the getter method's prefix is either get or is. For example, getStopped() or isStopped().
@@ -53,7 +53,7 @@ A Java program is mostly a collection of objects talking to other objects by inv
 * Setter method signatures must be marked public, with a void return type and an argument that represents the property type.
 * Getter method signatures must be marked public, take no arguments, and have a return type that matches the argument type of the setter method for that property.
 
-##### JavaBean Listener Naming Rules
+#### JavaBean Listener Naming Rules
 
 * Listener method names used to "register" a listener with an event source must use the prefix add, followed by the listener type. For example, addActionListener().
 * Listener method names used to remove ("unregister") a listener must use the prefix remove, followed by the listener type.
@@ -90,17 +90,17 @@ One class (class A) has access to another class (class B).
 
 Access means visibility.
 
-##### Default Access
+#### Default Access
 
 Think of default access as package-level access, because a class with default access can be seen only by classes within the same package.
 
-##### Public Access
+#### Public Access
 
 A class declaration with the public keyword gives all classes from all packages access to the public class.
 
 #### Other (Nonaccess) Class Modifiers
 
-##### Final Classes
+#### Final Classes
 
 When used in a class declaration, the `final` keyword means the class can't be subclassed.
 final gives you the security that nobody can change the implementation out from under you.
@@ -111,7 +111,7 @@ can't modify the source to improve the method, but you can extend the class and
 override the method in your new subclass, and substitute the subclass everywhere
 the original superclass is expected. If the class is final, though, then you're stuck.
 
-##### Abstract Classes
+#### Abstract Classes
 
 An abstract class can never be instantiated. Its sole purpose, mission in life, raison d'être, is to be extended (subclassed).
 Imagine you have a class Car that has generic methods common to all vehicles. But you don't want anyone actually creating a generic, abstract Car object.
@@ -280,7 +280,7 @@ The char type (a character) contains a single, 16-bit Unicode character.
 Reference variables can be declared as static variables, instance variables, method parameters, or local variables.
 You can declare one or more reference variables, of the same type, in a single line.
 
-##### Instance Variables
+#### Instance Variables
 
 Instance variables are defined inside the class, but outside of any method, and are only initialized when the class is instantiated. Instance variables are the fields that belong to each unique object.
 
@@ -296,7 +296,7 @@ any of the three access modifiers)
 * Cannot be marked native
 * Cannot be marked static, because then they'd become class variables.
 
-##### Local (Automatic/Stack/Method) Variables
+#### Local (Automatic/Stack/Method) Variables
 
 Local variables are variables declared within a method. That means the variable is not just initialized within the method, but also declared within  the method. Just as the local variable starts its life inside the method, it's also destroyed when the method has completed.
 Local variables are always on the stack. If the variable is an object reference, the object itself will still be created on the heap.
@@ -305,16 +305,16 @@ And before a local variable can be used, it must be initialized with a value.
 
 It is possible to declare a local variable with the same name as an instance variable. It's known as shadowing.
 
-##### Array Declarations
+#### Array Declarations
 
 Arrays are objects that store multiple variables of the same type, or variables that are all subclasses of the same type. Arrays can hold either primitives or object references, but the array itself will always be an object on the heap.
 
-###### Declaring an Array of Primitives
+##### Declaring an Array of Primitives
 
 `int[] key;`  
 `int key [];`  
 
-###### Declaring an Array of Object References
+##### Declaring an Array of Object References
 
 `Thread[] threads;`  
 `Thread threads [];`
@@ -326,20 +326,20 @@ Declare multidimensional arrays, which are in fact arrays of arrays.
 It is illegal to include the size of the array in your declaration.
 `int[5] scores;`
 
-##### Final Variables
+#### Final Variables
 Declaring a variable with the `final` keyword makes it impossible to reinitialize that variable once it has been initialized with an explicit value.
 A reference variable marked `final` can't ever be reassigned to refer to a different object. 
 The data within the object can be modified, but the reference variable cannot be changed. In other words, a `final` reference still allows you to modify the state of the object it refers to, but you can't modify the reference variable to make it refer to a different object.
 There are no `final` objects, only `final` references.
 
-##### Transient Variables
+#### Transient Variables
 If you mark an instance variable as `transient`, you're telling the JVM to skip (ignore) this variable when you attempt to serialize the object containing it.
 
-##### Volatile Variables
+#### Volatile Variables
 
 The `volatile` modifier tells the JVM that a thread accessing the variable must always reconcile its own private copy of the variable with the master copy in memory.
 
-##### Static Variables and Methods
+#### Static Variables and Methods
 
 The `static` modifier is used to create variables and methods that will exist independently of any instances created for the class.
 All `static` members exist before you ever make a new instance of a class, and there will be only one copy of a `static` member regardless of the number of instances of that class.

@@ -23,24 +23,27 @@ Octal integers use only the digits 0 to 7. You represent an integer in octal for
 
 #### Hexadecimal Literals
 Hexadecimal (hex for short) numbers are constructed using 16 distinct symbols. Because we never invented single digit symbols for the numbers 10 through 15, we use alphabetic characters to represent these digits.
-`0 1 2 3 4 5 6 7 8 9 a b c d e f`
+    
+    `0 1 2 3 4 5 6 7 8 9 a b c d e f`
+
 Including the prefix 0x.
-`int x = 0X0001;`
-`int y = 0x7fffffff;`
-`int z = 0xDeadCafe;`
+
+    `int x = 0X0001;`
+    `int y = 0x7fffffff;`
+    `int z = 0xDeadCafe;`
 
 All three integer literals are defined as `int` by default.
 
 #### Floating-Point Literals
 Floating-point literals are defined as double (64 bits) by default. You must attach the suffix F or f to the number.
 
-`float f = 23.467890;           // Compiler error, possible loss of precision`  
-`float g = 49837849.029847F;    // OK; has the suffix "F"`
+    `float f = 23.467890;           // Compiler error, possible loss of precision`  
+    `float g = 49837849.029847F;    // OK; has the suffix "F"`
 
 Optionally attach a D or d to double literals, but it is not necessary because this is the default behavior.
 
-`double d = 110599.995011D;  // Optional, not required`  
-`double g = 987.897;         // No 'D' suffix, but OK because the literal is a double by default`
+    `double d = 110599.995011D;  // Optional, not required`  
+    `double g = 987.897;         // No 'D' suffix, but OK because the literal is a double by default`
 
 #### Boolean Literals
 Boolean literals are the source code representation for boolean values. A boolean value can only be defined as `true` or `false`.
@@ -48,13 +51,13 @@ Boolean literals are the source code representation for boolean values. A boolea
 #### Character Literals
 A char literal is represented by a single character in single quotes.
 
-`char a = 'a';`  
-`char b = '@';`  
-`char letterN = '\u004E';   // The letter 'N'`  
-`char a = 0x892;             // hexadecimal literal`  
-`char b = 982;               // int literal`  
-`char c = (char)70000;       // The cast is required; 70000 is out of char range`  
-`char d = (char) -98;        // Ridiculous, but legal`  
+    `char a = 'a';`  
+    `char b = '@';`  
+    `char letterN = '\u004E';   // The letter 'N'`  
+    `char a = 0x892;             // hexadecimal literal`  
+    `char b = 982;               // int literal`  
+    `char c = (char)70000;       // The cast is required; 70000 is out of char range`  
+    `char d = (char) -98;        // Ridiculous, but legal`  
 
 #### Literal Values for Strings
 A string literal is a source code representation of a value of a String object.
@@ -72,8 +75,8 @@ All we can say for sure is that the variable's value is *not* the object, but ra
 The most important point to remember is that a literal integer is always implicitly an int.
 A byte-sized holder can't hold as many bits as an int-sized holder.
 
-`byte b = 27;`  
-`byte b = (byte) 27;    // Explicitly cast the int literal to a byte`  
+    `byte b = 27;`  
+    `byte b = (byte) 27;    // Explicitly cast the int literal to a byte`  
 
 ``` java  
 byte a = 3;  
@@ -84,7 +87,7 @@ byte c = b + c;
 Won't compile! `...possible loss of precision...`
 We tried to assign the sum of two bytes to a byte variable, the result of which (11) was definitely small enough to fit into a byte, but the compiler didn't care. It knew the rule about int-or-smaller expressions always resulting in an int. It would have compiled if we'd done the *explicit* cast:
 
-`byte c = (byte) (a + b);`
+    `byte c = (byte) (a + b);`
 
 #### Primitive Casting
 Casts can be implicit or explicit. An implicit cast means you don't have to write code for the cast; the conversion happens automatically. Typically, an implicit cast happens when you're doing a widening conversion. In other words, putting a smaller thing (say, a `byte`) into a bigger container (like an `int`).
@@ -101,6 +104,7 @@ When you assign one primitive variable to another, the contents of the right-han
 
 #### Reference Variable Assignments
 You can assign a newly created object to an object reference variable as follows:
+    
     `Button b = new Button();`
 
 * Makes a reference variable named `b`, of type `Button`
@@ -229,10 +233,10 @@ Array objects have a single public variable, `length` that gives you the number 
 #### Declaring, Constructing, and Initializing on One Line
 You can use two different array-specific syntax shortcuts to both initialize and construct in a single statement.
 
-    ``` java  
-    int x = 9;  
-    int[] dots = { 6, x, 8 };  
-    ```
+``` java  
+int x = 9;  
+int[] dots = { 6, x, 8 };  
+```
 
 * Declares an int array reference variable named dots.
 * Creates an int array with a length of three (three elements).
@@ -243,10 +247,10 @@ You can use two different array-specific syntax shortcuts to both initialize and
 
 Anonymous array creation:
 
-    ``` java
-    int[] testScores;  
-    testScores = new int[] { 4, 7, 2 };  
-    ```
+``` java
+int[] testScores;  
+testScores = new int[] { 4, 7, 2 };  
+```
 
 #### Legal Array Element Assignments
 Arrays can have only one declared type.
@@ -319,22 +323,22 @@ The Integer and Long wrapper classes let you convert numbers in base 10 to other
 Autoboxing, auto-unboxing, boxing, and unboxing. Boxing and unboxing make using wrapper classes more .convenient.
 Before Java 5:
 
-    ``` java
-    Integer y = new Integer(567); // make it  
-    int x = y.intValue(); // unwrap it  
-    x++; // use it  
-    y = new Integer(x); // re-wrap it  
-    System.out.println("y = " + y); // print it  
-    ```
+``` java
+Integer y = new Integer(567); // make it  
+int x = y.intValue(); // unwrap it  
+x++; // use it  
+y = new Integer(x); // re-wrap it  
+System.out.println("y = " + y); // print it  
+```
 
 Since Java 5 has released:
 
-    ``` java
-    Integer y = new Integer(567); // make it  
-    y++; // unwrap it, increment it,  
-    // rewrap it  
-    System.out.println("y = " + y); // print it  
-    ```
+``` java
+Integer y = new Integer(567); // make it  
+y++; // unwrap it, increment it,  
+// rewrap it  
+System.out.println("y = " + y); // print it  
+```
 
 #### Boxing, ==, and equals()
 
@@ -361,29 +365,29 @@ When a class has overloaded methods, one of the compiler's jobs is to determine 
 
 #### Overloading with Boxing and Var-args
 
-    ``` java
-    class AddBoxing {  
-        static void go(Integer x) { System.out.println("Integer"); }  
-        static void go(long x) { System.out.println("long"); }  
-        public static void main(String [] args) {  
-            int i = 5;  
-            go(i); // which go() will be invoked?  
-        }  
+``` java
+class AddBoxing {  
+    static void go(Integer x) { System.out.println("Integer"); }  
+    static void go(long x) { System.out.println("long"); }  
+    public static void main(String [] args) {  
+        int i = 5;  
+        go(i); // which go() will be invoked?  
     }  
-    ```
+}  
+```
 
 Does the compiler think that widening a primitive parameter is more desirable than performing an autoboxing operation? The answer is that the compiler will choose widening over boxing, so the output will be `long`.
 
-    ``` java
-    class AddVarargs {  
-        static void go(int x, int y) { System.out.println("int,int");}  
-        static void go(byte... x) { System.out.println("byte... "); }  
-        public static void main(String[] args) {  
-            byte b = 5;  
-            go(b,b); // which go() will be invoked?  
-        }  
+``` java
+class AddVarargs {  
+    static void go(int x, int y) { System.out.println("int,int");}  
+    static void go(byte... x) { System.out.println("byte... "); }  
+    public static void main(String[] args) {  
+        byte b = 5;  
+        go(b,b); // which go() will be invoked?  
     }  
-    ```
+}  
+```
 
 The output is `int,int`.
 
@@ -394,16 +398,16 @@ The compiler will choose the older style before it chooses the newer style, keep
 
 Does boxing beat var-args?
 
-    ``` java
-    class BoxOrVararg {  
-        static void go(Byte x, Byte y) {} System.out.println("Byte, Byte"); }  
-        static void go(byte... x) { System.out.println("byte... "); }  
-        public static void main(String [] args) {  
-            byte b = 5;  
-            go(b,b); // which go() will be invoked?  
-        }  
+``` java
+class BoxOrVararg {  
+    static void go(Byte x, Byte y) {} System.out.println("Byte, Byte"); }  
+    static void go(byte... x) { System.out.println("byte... "); }  
+    public static void main(String [] args) {  
+        byte b = 5;  
+        go(b,b); // which go() will be invoked?  
     }  
-    ```
+}  
+```
 
 The output is `Byte, Byte`.
 
@@ -415,30 +419,30 @@ The reference widening depends on inheritance, in other words the IS-A test. Bec
 #### Overloading When Combining Widening and Boxing
 What happens when more than one conversion is required, say the compiler will have to widen and then autobox the parameter for a match.
 
-    ``` java
-    class WidenAndBox {  
-        static void go(Long x) { System.out.println("Long"); }  
-        public static void main(String [] args) {  
-            byte b = 5;  
-            go(b); // must widen then box - illegal  
-        }  
+``` java
+class WidenAndBox {  
+    static void go(Long x) { System.out.println("Long"); }  
+    public static void main(String [] args) {  
+        byte b = 5;  
+        go(b); // must widen then box - illegal  
     }  
-    ```
+}  
+```
 
 This is just too much for the compiler. But:
 
-    ``` java
-    class BoxAndWiden {  
-        static void go(Object o) {  
-            Byte b2 = (Byte) o; // ok - it's a Byte object  
-            System.out.println(b2);  
-        }  
-        public static void main(String [] args) {  
-            byte b = 5;  
-            go(b); // can this byte turn into an Object ?  
-        }  
-    }
-    ```
+``` java
+class BoxAndWiden {  
+    static void go(Object o) {  
+        Byte b2 = (Byte) o; // ok - it's a Byte object  
+        System.out.println(b2);  
+    }  
+    public static void main(String [] args) {  
+        byte b = 5;  
+        go(b); // can this byte turn into an Object ?  
+    }  
+}
+```
 
 The output is `5`.
 
@@ -485,25 +489,25 @@ When a method is invoked, any local variables created exist only for the duratio
 There is another way in which objects can become eligible for garbage collection, even if they still have valid references!
 A simple example is a class that has an instance variable that is a reference variable to another instance of the same class.
 
-    ``` java
-    public class Island {  
-        Island i;  
-        public static void main(String [] args) {  
-            Island i2 = new Island();  
-            Island i3 = new Island();  
-            Island i4 = new Island();  
-            
-            i2.i = i3; // i2 refers to i3  
-            i3.i = i4; // i3 refers to i4  
-            i4.i = i2; // i4 refers to i2  
-              
-            i2 = null;  
-            i3 = null;  
-            i4 = null;  
-            // do complicated, memory intensive stuff  
-        }  
+``` java
+public class Island {  
+    Island i;  
+    public static void main(String [] args) {  
+        Island i2 = new Island();  
+        Island i3 = new Island();  
+        Island i4 = new Island();  
+        
+        i2.i = i3; // i2 refers to i3  
+        i3.i = i4; // i3 refers to i4  
+        i4.i = i2; // i4 refers to i2  
+          
+        i2 = null;  
+        i3 = null;  
+        i4 = null;  
+        // do complicated, memory intensive stuff  
     }  
-    ```  
+}  
+```  
 
 When the code reaches `// do complicated`, the three Island objects have instance variables so that they refer to each other, but their links to the outside world (`i2`, `i3`, and `i4`) have been nulled.
 These three objects are eligible for garbage collection.

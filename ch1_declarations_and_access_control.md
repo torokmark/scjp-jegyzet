@@ -21,19 +21,19 @@ A Java program is mostly a collection of objects talking to other objects by inv
 #### Legal and illegal identifiers
 
 ``` java
-    int _a;   
-    int $c;  
-    int ______2_w;  
-    int _$;  
-    int this_is_a_very_detailed_name_for_an_identifier;
+int _a;   
+int $c;  
+int ______2_w;  
+int _$;  
+int this_is_a_very_detailed_name_for_an_identifier;
 ```
 
 ``` java
-    int :b;  
-    int -d;  
-    int e#;  
-    int .f;  
-    int 7g;  
+int :b;  
+int -d;  
+int e#;  
+int .f;  
+int 7g;  
 ```
 
 ### Code Convetions
@@ -103,7 +103,7 @@ A class declaration with the public keyword gives all classes from all packages 
 #### Final Classes
 
 When used in a class declaration, the `final` keyword means the class can't be subclassed.
-final gives you the security that nobody can change the implementation out from under you.
+`final` gives you the security that nobody can change the implementation out from under you.
 Many classes in the Java core libraries are final. For example, the String class.
 A benefit of having nonfinal classes is this scenario: Imagine you find a problem
 with a method in a class you're using, but you don't have the source code. So you
@@ -138,7 +138,9 @@ An abstract class can define both abstract and non-abstract methods, an interfac
 * An interface must be declared with the keyword interface.
 * Interface types can be used polymorphically.
 
-`public abstract interface Rollable { }`
+``` java
+public abstract interface Rollable { }
+```
 
 Typing in the abstract modifier is considered redundant; interfaces are implicitly abstract.
 
@@ -311,20 +313,30 @@ Arrays are objects that store multiple variables of the same type, or variables 
 
 ##### Declaring an Array of Primitives
 
-`int[] key;`  
-`int key [];`  
+``` java
+int[] key;  
+int key [];
+```
 
 ##### Declaring an Array of Object References
 
-`Thread[] threads;`  
-`Thread threads [];`
+``` java
+Thread[] threads;
+Thread threads [];
+```
 
 Declare multidimensional arrays, which are in fact arrays of arrays.
-`String[][][] occupantName;`
-`String[] managerName [];`
+
+``` java
+String[][][] occupantName;
+String[] managerName [];
+```
 
 It is illegal to include the size of the array in your declaration.
-`int[5] scores;`
+
+``` java
+int[5] scores;
+```
 
 #### Final Variables
 Declaring a variable with the `final` keyword makes it impossible to reinitialize that variable once it has been initialized with an explicit value.
@@ -367,7 +379,9 @@ They must not be declared within a method!
 Enums can be declared as their own class, or enclosed in another class, and that the syntax for accessing an enum's members depends on where the enum was declared.
 To make it more confusing for you, the Java language designers made it optional to put a semicolon at the end of the `enum` declaration.
 
-`enum CoffeeSize { BIG, HUGE, OVERWHELMING }; // <--semicolon is optional here`
+``` java
+enum CoffeeSize { BIG, HUGE, OVERWHELMING }; // <--semicolon is optional here
+```
 
 Each of the enumerated values are represented as static and final.
 

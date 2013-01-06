@@ -28,22 +28,28 @@ Hexadecimal (hex for short) numbers are constructed using 16 distinct symbols. B
 
 Including the prefix 0x.
 
-    `int x = 0X0001;`
-    `int y = 0x7fffffff;`
-    `int z = 0xDeadCafe;`
+``` java
+    int x = 0X0001;
+    int y = 0x7fffffff;
+    int z = 0xDeadCafe;
+```
 
 All three integer literals are defined as `int` by default.
 
 #### Floating-Point Literals
 Floating-point literals are defined as double (64 bits) by default. You must attach the suffix F or f to the number.
 
-    `float f = 23.467890;           // Compiler error, possible loss of precision`  
-    `float g = 49837849.029847F;    // OK; has the suffix "F"`
+``` java
+    float f = 23.467890;           // Compiler error, possible loss of precision
+    float g = 49837849.029847F;    // OK; has the suffix "F"
+```
 
 Optionally attach a D or d to double literals, but it is not necessary because this is the default behavior.
 
-    `double d = 110599.995011D;  // Optional, not required`  
-    `double g = 987.897;         // No 'D' suffix, but OK because the literal is a double by default`
+``` java
+    double d = 110599.995011D;  // Optional, not required
+    double g = 987.897;         // No 'D' suffix, but OK because the literal is a double by default
+```
 
 #### Boolean Literals
 Boolean literals are the source code representation for boolean values. A boolean value can only be defined as `true` or `false`.
@@ -51,13 +57,15 @@ Boolean literals are the source code representation for boolean values. A boolea
 #### Character Literals
 A char literal is represented by a single character in single quotes.
 
-    `char a = 'a';`  
-    `char b = '@';`  
-    `char letterN = '\u004E';   // The letter 'N'`  
-    `char a = 0x892;             // hexadecimal literal`  
-    `char b = 982;               // int literal`  
-    `char c = (char)70000;       // The cast is required; 70000 is out of char range`  
-    `char d = (char) -98;        // Ridiculous, but legal`  
+``` java
+    char a = 'a';`  
+    char b = '@';`  
+    char letterN = '\u004E';   // The letter 'N'
+    char a = 0x892;             // hexadecimal literal
+    char b = 982;               // int literal
+    char c = (char)70000;       // The cast is required; 70000 is out of char range
+    char d = (char) -98;        // Ridiculous, but legal
+```
 
 #### Literal Values for Strings
 A string literal is a source code representation of a value of a String object.
@@ -75,8 +83,10 @@ All we can say for sure is that the variable's value is *not* the object, but ra
 The most important point to remember is that a literal integer is always implicitly an int.
 A byte-sized holder can't hold as many bits as an int-sized holder.
 
-    `byte b = 27;`  
-    `byte b = (byte) 27;    // Explicitly cast the int literal to a byte`  
+``` java
+byte b = 27;
+byte b = (byte) 27;    // Explicitly cast the int literal to a byte
+```
 
 ``` java  
 byte a = 3;  
@@ -87,7 +97,9 @@ byte c = b + c;
 Won't compile! `...possible loss of precision...`
 We tried to assign the sum of two bytes to a byte variable, the result of which (11) was definitely small enough to fit into a byte, but the compiler didn't care. It knew the rule about int-or-smaller expressions always resulting in an int. It would have compiled if we'd done the *explicit* cast:
 
-    `byte c = (byte) (a + b);`
+``` java
+byte c = (byte) (a + b);
+```
 
 #### Primitive Casting
 Casts can be implicit or explicit. An implicit cast means you don't have to write code for the cast; the conversion happens automatically. Typically, an implicit cast happens when you're doing a widening conversion. In other words, putting a smaller thing (say, a `byte`) into a bigger container (like an `int`).
@@ -105,7 +117,9 @@ When you assign one primitive variable to another, the contents of the right-han
 #### Reference Variable Assignments
 You can assign a newly created object to an object reference variable as follows:
     
-    `Button b = new Button();`
+``` java
+Button b = new Button();
+```
 
 * Makes a reference variable named `b`, of type `Button`
 * Creates a new `Button` object on the heap

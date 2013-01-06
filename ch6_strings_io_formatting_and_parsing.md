@@ -4,7 +4,7 @@
 
 ### The String Class ###
 
-##### Strings Are Immutable Objects #####
+#### Strings Are Immutable Objects ####
 Each character in a string is a 16-bit Unicode character.
 Strings are objects. Just like other objects, you can create an instance of a String with the `new` keyword, as follows:
 
@@ -24,7 +24,7 @@ The good news is that while the String object is immutable, its reference variab
 Let's look at what really happened:
 The VM took the value of String s (which was "`abcdef`"), and tacked "` more stuff`" onto the end, giving us the value "`abcdef more stuff`". Since Strings are immutable, the VM couldn't stuff this new value into the old String referenced by s, so it created a new String object, gave it the value "`abcdef more stuff`", and made s refer to it. Technically there are now three String objects, because the literal argument to concat, "` more stuff`", is itself a new String object.
 
-##### Important Facts About Strings and Memory #####
+#### Important Facts About Strings and Memory ####
 When the compiler encounters a String literal, it checks the pool to see if an identical String already exists. If a match is found, the reference to the new literal is directed to the existing String, and no new String literal object is created. Now we can start to see why making String objects immutable is such a good idea. If several reference variables refer to the same String without even knowing it, it would be very bad if any of them could change the String's value.
 
 ### Important Methods in the String Class ###
@@ -43,7 +43,7 @@ When the compiler encounters a String literal, it checks the pool to see if an i
 ### The StringBuffer and StringBuilder Classes ###
 The java.lang.StringBuffer and java.lang.StringBuilder classes should be used when you have to make a lot of modifications to strings of characters. String objects are immutable, so if you choose to do a lot of manipulations with String objects, you will end up with a lot of abandoned String objects in the String pool.
 
-##### StringBuffer vs. StringBuilder #####
+#### StringBuffer vs. StringBuilder ####
 StringBuffer class has exactly the same API as the StringBuffer class, except StringBuilder is not thread safe. In other words, its methods are not synchronized. StringBuilder will run faster.
 
 
@@ -64,14 +64,14 @@ allow you to get the next line of characters from a file.
 
 * **Console** This new, Java 6 convenience class provides methods to read input from the console and write formatted output to the console.
 
-##### Creating Files Using Class File #####
+#### Creating Files Using Class File ####
 Objects of type File are used to represent the actual files.
 When you make a new instance of the class File, *you're not yet making an actual file, you're just creating a filename*.
 
-##### Using FileWriter and FileReaders #####
+#### Using FileWriter and FileReaders ####
 When you write data out to a stream, some amount of buffering will occur, and you never know for sure exactly when the last of the data will actually be sent. You might perform many write operations on a stream before closing it, and invoking the `flush()` method guarantees that the last of the data you thought you had already written actually gets out to the file. Whenever you're done using a file, either reading it or writing to it, you should invoke the `close()` method. When you are doing file I/O you're using expensive and limited operating system resources, and so when you're done, invoking `close()` will free up those resources.
 
-##### Combining I/O classes #####
+#### Combining I/O classes ####
 Java's entire I/O system was designed around the idea of using several classes in combination. Combining I/O classes is sometimes called *wrapping* and sometimes called *chaining*. The java.io package contains about 50 classes, 10 interfaces, and 15 exceptions.
 
 How we'll hook them together:
@@ -80,7 +80,7 @@ How we'll hook them together:
 * Find a method that sounds like the most powerful, easiest way to accomplish the task. BufferedWriter has a `newLine()` method. PrintWriter has a method called `println()`.
 * When we look at PrintWriter's constructors, we see that we can build a PrintWriter object if we have an object of type File, so all we need to do to create a PrintWriter object.
 
-##### Working with Files and Directories #####
+#### Working with Files and Directories ####
 
 * **`delete()`** You can't delete a directory if it's not empty.
 * **`renameTo()`** You must give the existing File object a valid new File object with the new name that you want. (If `newName` had been `null` we would have gotten a NullPointerException.)
@@ -95,7 +95,7 @@ The `readLine` method returns a string containing whatever the user keyed in. Th
 Serialization lets you simply say "save this object and all of its instance variables".
 Unless a variable marked as `transient`, which means, don't include the transient variable's value as part of the object's serialized state.
 
-##### Working with ObjectOutputStream and ObjectInputStream #####
+#### Working with ObjectOutputStream and ObjectInputStream ####
 The magic of basic serialization happens with just two methods: one to serialize objects and write them to a stream, and a second to read the stream and deserialize objects.
 
 ``` java
@@ -105,7 +105,7 @@ ObjectInputStream.readObject() // read and deserialize
 
 The java.io.ObjectOutputStream and java.io.ObjectInputStream classes are considered to be *higher*-level classes in the java.io package. That means that you'll wrap them around *lower*-level classes, such as java.io.FileOutputStream and java.io.FileInputStream.
 
-##### Object Graphs #####
+#### Object Graphs ####
 If the instance variables are all primitive types, it's pretty straightforward. But what if the instance variables are themselves references to *objects*? The reference would be useless.
 what would happen if we didn't have access to the Collar class source code? Obviously we could subclass the Collar class, mark the subclass as Serializable, and then use the Collar subclass instead of the Collar class. But that's not always an option either for several potential reasons:
 
@@ -113,7 +113,7 @@ what would happen if we didn't have access to the Collar class source code? Obvi
 * The Collar class might itself refer to other non-serializable objects, and without knowing the internal structure of Collar, you aren't able to make all these fixes.
 * Subclassing is not an option for other reasons related to your design.
 
-##### Using writeObject and readObject #####
+#### Using writeObject and readObject ####
 Java serialization has a special mechanism just for this—a set of private methods you can implement in your class that, if present, will be invoked automatically during serialization and deserialization.
 The two special methods you define must have signatures that look EXACTLY like this:
 
@@ -127,7 +127,7 @@ private void readObject(ObjectInputStream is) {
 }
 ```
 
-##### How Inheritance Affects Serialization #####
+#### How Inheritance Affects Serialization ####
 If a superclass is Serializable, then according to normal Java interface rules, all subclasses of that class automatically implement Serializable implicitly. 	
 
 When an object is constructed using `new` the following things happen:
@@ -144,7 +144,7 @@ If you have variables marked transient, they will not be restored to their origi
 If you are a serializable class, but your superclass is NOT serializable, then any instance variables you INHERIT from that superclass will be reset to the values they were given during the original construction of the object. This is because the nonserializable class constructor WILL run!
 If you serialize a collection or an array, every element must be serializable! A single non-serializable element will cause serialization to fail. Note also that while the collection interfaces are not serializable, the concrete collection classes in the Java API are.
 
-##### Serialization Is Not for Statics #####
+#### Serialization Is Not for Statics ####
 We've talked ONLY about instance variables, not static variables.
 
 
@@ -160,11 +160,11 @@ The four date related classes:
 * **`java.text.NumberFormat`** This class is used to format numbers and currencies for locales around the world.
 * **`java.util.Locale`** This class is used in conjunction with `DateFormat` and `NumberFormat` to format dates, numbers and currency for specific locales.
 
-##### Orchestrating Date- and Number-Related Classes #####
+#### Orchestrating Date- and Number-Related Classes ####
 
-##### The Date Class #####
+#### The Date Class ####
 
-##### The Calendar Class #####
+#### The Calendar Class ####
 The Calendar class is designed to make date manipulation easy! That it's an abstract class.
 
 ``` java
@@ -180,16 +180,16 @@ Calendar cal = Calendar.getInstance();
 When you get a Calendar reference like cal, from above, your Calendar reference variable is actually referring to an instance of a concrete subclass of Calendar.
 The `roll()` method acts like the `add()` method, except that when a part of a Date gets incremented or decremented, larger parts of the Date will not get incremented or decremented.
 
-##### The DateFormat Class #####
+#### The DateFormat Class ####
 Having learned how to create dates and manipulate them, let's find out how to format them.
 The API for DateFormat.parse() explains that by default, the `parse()` method is lenient when parsing dates. Our experience is that `parse()` isn't very lenient about the formatting of Strings it will successfully parse into dates.
 
 
-##### The Locale Class #####
+#### The Locale Class ####
 The Locale class is your ticket to worldwide domination. Both the DateFormat class and the NumberFormat class can use an instance of Locale to customize formatted output to be specific to a locale.
 There are a couple more methods in Locale (`getDisplayCountry()` and `getDisplayLanguage()`) that you'll have to know for the exam.
 
-##### The NumberFormat Class #####
+#### The NumberFormat Class ####
 Like the DateFormat class, NumberFormat is abstract, so you'll typically use some version of either `getInstance()` or `getCurrencyInstance()` to create a NumberFormat object.
 
 
@@ -198,7 +198,7 @@ Like the DateFormat class, NumberFormat is abstract, so you'll typically use som
 ### A Search Tutorial ###
 Regular expressions (regex for short) are a kind of language within a language, designed to help programmers with searching tasks. Every language that provides regex capabilities uses one or more regex *engines*. Regex engines search through textual data using instructions that are coded into *expressions*.
 
-##### When Metacharacters and Strings Collide #####
+#### When Metacharacters and Strings Collide ####
 
 ``` java
 String pattern = "\d"; // compiler error!

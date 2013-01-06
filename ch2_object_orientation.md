@@ -73,7 +73,7 @@ The rules for overriding a method are as follows:
 * You cannot override a method marked static.
 * If a method can't be inherited, you cannot override it.
 
-##### Invoking a Superclass Version of an Overridden Method
+#### Invoking a Superclass Version of an Overridden Method
 
 It's easy to do in code using the keyword `super`.
 
@@ -125,11 +125,11 @@ A nonabstract implementation class must do the following:
 
 ### Return Type Declarations
 
-##### Return Types on Overloaded Methods
+#### Return Types on Overloaded Methods
 
 Method overloading is not much more than name reuse. What you can't do is change *only* the return type. To overload a method, remember, you must change the argument list.
 
-##### Overriding and Return Types, and Covariant Returns
+#### Overriding and Return Types, and Covariant Returns
 
 You're allowed to change the return type in the overriding method as long as the new return type is a *subtype* of the declared return type of the overridden (superclass) method.
 
@@ -166,12 +166,12 @@ Six rules for returning a value:
 Objects are constructed. You can't make a new object without invoking a constructor.
 Constructors are the code that runs whenever you use the keyword `new`.
 
-##### Constructor Basics
+#### Constructor Basics
 
 Every class, *including abstract classes*, MUST have a constructor.
 They have no return type and their names must exactly match the class name.
 
-##### Constructor Chaining
+#### Constructor Chaining
 
 What really happens when you say `new Horse()` ?
 
@@ -185,7 +185,7 @@ What really happens when you say `new Horse()` ?
 8. Horse instance variables are given their explicit values
 9. Horse constructor completes.
 
-##### Rules for Constructors
+#### Rules for Constructors
 
 * Constructors can use any access modifier, including private.
 * The constructor name must match the name of the class.
@@ -216,16 +216,16 @@ constructor. You're free to put in your own no-arg constructor.
 
 ### Determine Whether a Default Constructor Will Be Created
 
-##### How do you know for sure whether a default constructor will be created?
+#### How do you know for sure whether a default constructor will be created?
 Because you didn't write any constructors in your class.
 
-##### How do you know what the default constructor will look like?
+#### How do you know what the default constructor will look like?
 
 * The default constructor has the same access modifier as the class.
 * The default constructor has no arguments.
 * The default constructor includes a no-arg call to the super constructor (`super()`).
 
-##### What happens if the super constructor has arguments?
+#### What happens if the super constructor has arguments?
 Constructors can have arguments just as methods can, and if you try to invoke a method that takes, but you don't pass anything to the method, the compiler will complain
 
 **Constructors are never inherited.**
@@ -265,7 +265,7 @@ Variables and methods marked `static` belong to the class, rather than to any pa
 if there are instances, a `static` variable of a class will be shared by all instances of that class
 A `static` method can't access a nonstatic (instance) variable, a `static` method can't directly invoke a nonstatic method.
 
-##### Accessing Static Methods and Variables
+#### Accessing Static Methods and Variables
 Finally, remember that *static methods can't be overridden*. This doesn't mean they can't be redefined in a subclass.
 
 ## Coupling and Cohesion (Exam Objective 5.1)
@@ -276,10 +276,10 @@ The goals for an application are:
 * Ease of maintenance
 * Ease of enhancement
 
-##### Coupling
+#### Coupling
 Coupling is the degree to which one class knows about another class.
 If the only knowledge that class A has about class B, is what class B has exposed through its interface, then class A and class B are said to be loosely coupled.
 If A knows more than it should about the way in which B was implemented, then A and B are tightly coupled.
 
-##### Cohesion
+#### Cohesion
 Cohesion is all about how a single class is designed. The term *cohesion* is used to indicate the degree to which a class has a single, well-focused purpose.

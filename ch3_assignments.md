@@ -13,15 +13,15 @@ The various pieces (methods, variables, and objects) of Java programs live in on
 
 A primitive literal is merely a source code representation of the primitive data types.
 
-##### Integer Literals
+#### Integer Literals
 There are three ways to represent integer numbers in the Java language: decimal (base 10), octal (base 8), and hexadecimal (base 16).
 
-##### Decimal Literals
+#### Decimal Literals
 
-##### Octal Literals
+#### Octal Literals
 Octal integers use only the digits 0 to 7. You represent an integer in octal form by placing a zero in front of the number.
 
-##### Hexadecimal Literals
+#### Hexadecimal Literals
 Hexadecimal (hex for short) numbers are constructed using 16 distinct symbols. Because we never invented single digit symbols for the numbers 10 through 15, we use alphabetic characters to represent these digits.
 `0 1 2 3 4 5 6 7 8 9 a b c d e f`
 Including the prefix 0x.
@@ -31,7 +31,7 @@ Including the prefix 0x.
 
 All three integer literals are defined as `int` by default.
 
-##### Floating-Point Literals
+#### Floating-Point Literals
 Floating-point literals are defined as double (64 bits) by default. You must attach the suffix F or f to the number.
 
 `float f = 23.467890;           // Compiler error, possible loss of precision`  
@@ -42,10 +42,10 @@ Optionally attach a D or d to double literals, but it is not necessary because t
 `double d = 110599.995011D;  // Optional, not required`  
 `double g = 987.897;         // No 'D' suffix, but OK because the literal is a double by default`
 
-##### Boolean Literals
+#### Boolean Literals
 Boolean literals are the source code representation for boolean values. A boolean value can only be defined as `true` or `false`.
 
-##### Character Literals
+#### Character Literals
 A char literal is represented by a single character in single quotes.
 
 `char a = 'a';`  
@@ -56,7 +56,7 @@ A char literal is represented by a single character in single quotes.
 `char c = (char)70000;       // The cast is required; 70000 is out of char range`  
 `char d = (char) -98;        // Ridiculous, but legal`  
 
-##### Literal Values for Strings
+#### Literal Values for Strings
 A string literal is a source code representation of a value of a String object.
 
 The only other nonprimitive type that has a literal representation is an array.
@@ -68,7 +68,7 @@ Variables are just bit holders, with a designated type. You can have an int hold
 A reference variable bit holder contains bits representing a way to get to the object.
 All we can say for sure is that the variable's value is *not* the object, but rather a value representing a specific object on the heap. Or `null`.
 
-##### Primitive Assignments 
+#### Primitive Assignments 
 The most important point to remember is that a literal integer is always implicitly an int.
 A byte-sized holder can't hold as many bits as an int-sized holder.
 
@@ -86,20 +86,20 @@ We tried to assign the sum of two bytes to a byte variable, the result of which 
 
 `byte c = (byte) (a + b);`
 
-##### Primitive Casting
+#### Primitive Casting
 Casts can be implicit or explicit. An implicit cast means you don't have to write code for the cast; the conversion happens automatically. Typically, an implicit cast happens when you're doing a widening conversion. In other words, putting a smaller thing (say, a `byte`) into a bigger container (like an `int`).
 The large-value-into-small-container conversion is referred to as *narrowing* and requires an explicit cast, where you tell the compiler that you're aware of the danger and accept full responsibility.
 
-###### Assigning Floating-Point Numbers
+##### Assigning Floating-Point Numbers
 Every floating-point literal is implicitly a `double` (64 bits)
 
-###### Assigning a Literal That Is Too Large for the Variable
+##### Assigning a Literal That Is Too Large for the Variable
 When you narrow a primitive, Java simply truncates the higher-order bits that won't fit. In other words, it loses all the bits to the left of the bits you're narrowing to.
 
-###### Assigning One Primitive Variable to Another Primitive Variable
+##### Assigning One Primitive Variable to Another Primitive Variable
 When you assign one primitive variable to another, the contents of the right-hand variable are copied.
 
-##### Reference Variable Assignments
+#### Reference Variable Assignments
 You can assign a newly created object to an object reference variable as follows:
     `Button b = new Button();`
 
@@ -110,7 +110,7 @@ You can assign a newly created object to an object reference variable as follows
 You can also assign `null` to an object reference variable, which simply means the
 variable is not referring to any object.
 
-##### Variable Scope
+#### Variable Scope
 
 * Static variables have the longest scope; they are created when the class is
 loaded, and they survive as long as the class stays loaded in the Java Virtual
@@ -133,16 +133,16 @@ variables, but the rules for these variables are the same regardless of what you
 call them. Although you can leave a local variable uninitialized, the compiler
 complains if you try to use a local variable before initializing it with a value.
 
-##### Primitive and Object Type Instance Variables
+#### Primitive and Object Type Instance Variables
 Instance variables (also called *member* variables) are variables defined at the class level.
 Instance variables are initialized to a default value each time a new instance is created.
 
-##### Primitive Instance Variables
+#### Primitive Instance Variables
 
-##### Object Reference Instance Variables
+#### Object Reference Instance Variables
 A `null` value means the reference variable is not referring to any object on the heap.
 
-##### Array Instance Variables
+#### Array Instance Variables
 An array is an object; thus, an array instance variable that's declared but not explicitly initialized will have a value of `null`, just as any other object reference instance variable.
 All array elements are given their default values — the same default values that elements of that type get when they're instance variables.
 *Array elements are always, always, always given default values, regardless of where the array itself is declared or instantiated.*
@@ -151,18 +151,18 @@ All array elements are given their default values — the same default values th
 
 Local variables are defined within a method, and they include a method's parameters.
 
-##### Local Primitives
+#### Local Primitives
 Local variables, including primitives, always, always, always must be initialized before you attempt to use them.
 
-##### Local Object References
+#### Local Object References
 Objects references, too, behave differently when declared within a method rather than as instance variables. With instance variable object references, you can get away with leaving an object reference uninitialized, as long as the code checks to make sure the reference isn't `null` before using it.
 To the compiler `null` is a value.
 You can't use the dot operator on a `null` reference, because *there is no object at the other end of it*, but a `null` reference is not the same as an *uninitialized* reference.
 
-##### Local Arrays
+#### Local Arrays
 Just like any other object reference, array references declared within a method must be assigned a value before use. Array elements are given their default values.
 
-##### Assigning One Reference Variable to Another
+#### Assigning One Reference Variable to Another
 With primitive variables, an assignment of one variable to another means the contents (bit pattern) of one variable are *copied* into another. Object reference variables work exactly the same way.
 If we assign an existing instance of an object to a new reference variable, then two reference variables will hold the same bit pattern - a bit pattern referring to a specific object on the heap.
 In Java, String objects are given special treatment. For one thing, String objects are immutable; you can't change the value of it.
@@ -207,11 +207,11 @@ It is never legal to include the size of the array in your declaration.
 
 Constructing an array means creating the array object on the *heap*, doing a `new` on the array type. To create an array object, Java must know how much space to allocate on the heap, so you must specify the size of the array at creation time.
 
-##### Constructing One-Dimensional Arrays
+#### Constructing One-Dimensional Arrays
 
 The most straightforward way to construct an array is to use the keyword new followed by the array type, with a bracket specifying how many elements of that type the array will hold.
 
-##### Constructing Multidimensional Arrays
+#### Constructing Multidimensional Arrays
 
 Multidimensional arrays are simply arrays of arrays.
 
@@ -223,10 +223,10 @@ Notice that only the first brackets are given a size.
 Initializing an array means putting things into it. A reference that has not had an object assigned to it is a `null` reference.
 The individual elements in the array can be accessed with an index number. The index number always begins with zero.
 
-##### Initializing Elements in a Loop
+#### Initializing Elements in a Loop
 Array objects have a single public variable, `length` that gives you the number of elements in the array.
 
-##### Declaring, Constructing, and Initializing on One Line
+#### Declaring, Constructing, and Initializing on One Line
 You can use two different array-specific syntax shortcuts to both initialize and construct in a single statement.
 
     ``` java  
@@ -248,21 +248,21 @@ Anonymous array creation:
     testScores = new int[] { 4, 7, 2 };  
     ```
 
-##### Legal Array Element Assignments
+#### Legal Array Element Assignments
 Arrays can have only one declared type.
 
-##### Arrays of Primitives
+#### Arrays of Primitives
 Primitive arrays can accept any value that can be promoted implicitly to the declared type of the array.
 
-##### Arrays of Object References
+#### Arrays of Object References
 If the declared array type is a class, you can put objects of any subclass of the declared type into the array.
 If the array is declared as an interface type, the array elements can refer to any instance of any class that implements the declared interface.
 
-##### Array Reference Assignments for One-Dimensional Arrays
+#### Array Reference Assignments for One-Dimensional Arrays
 All arrays are objects, so an `int` array reference cannot refer to an `int` primitive.
 An array declared as an interface type can reference an array of any type that implements the interface.
 
-##### Array Reference Assignments for Multidimensional Arrays
+#### Array Reference Assignments for Multidimensional Arrays
 When you assign an array to a previously declared array reference, the array you're assigning must be the same dimension as the reference you're assigning it to.
 
 ### Initialization Blocks
@@ -283,7 +283,7 @@ There is a wrapper class for every primitive in Java.
 ### Creating Wrapper Objects
 There are three most common approaches for creating wrapper objects. Some approaches take a String representation of a primitive as an argument. *Wrapper objects are immutable.*
 
-##### The Wrapper Constructors
+#### The Wrapper Constructors
 All of the wrapper classes except Character provide two constructors: one that takes a primitive of the type being constructed, and one that takes a String representation of the type being constructed.
 
     `Integer i1 = new Integer(42);`  
@@ -291,28 +291,28 @@ All of the wrapper classes except Character provide two constructors: one that t
 
 The constructors for the Boolean wrapper take either a `boolean` value `true` or `false`, or a String.
 
-##### The valueOf() Methods
+#### The valueOf() Methods
 The two static `valueOf()` methods provided in most of the wrapper classes give you another approach to creating wrapper objects. Both methods take a String representation of the appropriate type of primitive as their first argument, the second method takes an additional argument, `int radix`, which indicates in what base the first argument is represented.
 
 ### Using Wrapper Conversion Utilities
 
-##### xxxValue()
+#### xxxValue()
 When you need to convert the value of a wrapped numeric to a primitive, use one of the many `xxxValue()` methods. Each of the six numeric wrapper classes has six methods, so that any numeric wrapper can be converted to any primitive numeric type.
 
-##### parseXxx() and valueOf()
+#### parseXxx() and valueOf()
 The six `parseXxx()` methods (one for each numeric wrapper type) are closely related to the `valueOf()` method that exists in all of the numeric wrapper classes. Both `parseXxx()` and `valueOf()` take a String as an argument, throw a NumberFormatException if the String argument is not properly formed.
 The difference between the two methods is:
 
 * `parseXxx()` returns the named primitive.
 * `valueOf()` returns a newly created wrapped object of the type that invoked the method.
 
-##### toString()
+#### toString()
 Class Object, the alpha class, has a `toString()` method. All other Java classes have a `toString()` method. 
 The idea of the `toString()` method is to get some meaningful representation of a given object.
 All of the numeric wrapper classes provide an overloaded, `static toString()` method that takes a primitive numeric of the appropriate type (`Double.toString()` takes a `double`, `Long.toString()` takes a `long`, and so on) returns a String.
 Integer and Long provide a third toString() method. It's static, its first argument is the primitive, and its second argument is a radix.
 
-##### toXxxString() (Binary, Hexadecimal, Octal)
+#### toXxxString() (Binary, Hexadecimal, Octal)
 The Integer and Long wrapper classes let you convert numbers in base 10 to other bases.
 
 ### Autoboxing
@@ -336,7 +336,7 @@ Since Java 5 has released:
     System.out.println("y = " + y); // print it  
     ```
 
-##### Boxing, ==, and equals()
+#### Boxing, ==, and equals()
 
 In order to save memory, two instances of the following wrapper objects (created through boxing), will always be == when their primitive values are the same:
 
@@ -349,7 +349,7 @@ When == is used to compare a primitive to a wrapper, the wrapper will be unwrapp
 
 ## Overloading (Exam Objectives 1.5 and 5.4)
 
-##### Overloading Made Hard—Method Matching
+#### Overloading Made Hard—Method Matching
 To take a look at three factors that can make overloading a little tricky:
 
 * Widening
@@ -359,7 +359,7 @@ To take a look at three factors that can make overloading a little tricky:
 When a class has overloaded methods, one of the compiler's jobs is to determine which method to use whenever it finds an invocation for the overloaded method.
 *In every case, when an exact match isn't found, the JVM uses the method with the smallest argument that is wider than the parameter.*
 
-##### Overloading with Boxing and Var-args
+#### Overloading with Boxing and Var-args
 
     ``` java
     class AddBoxing {  
@@ -409,10 +409,10 @@ The output is `Byte, Byte`.
 
 Widening, boxing, var-args!
 
-##### Widening Reference Variables
+#### Widening Reference Variables
 The reference widening depends on inheritance, in other words the IS-A test. Because of this, it's not legal to widen from one wrapper class to another, because the wrapper classes are peers to one another.
 
-##### Overloading When Combining Widening and Boxing
+#### Overloading When Combining Widening and Boxing
 What happens when more than one conversion is required, say the compiler will have to widen and then autobox the parameter for a match.
 
     ``` java
@@ -442,7 +442,7 @@ This is just too much for the compiler. But:
 
 The output is `5`.
 
-##### Overloading in Combination with Var-args
+#### Overloading in Combination with Var-args
 You can successfully combine var-args with either widening or boxing.
 Rules for overloading methods using widening, boxing, and var-args:
 
@@ -462,10 +462,10 @@ Rules for overloading methods using widening, boxing, and var-args:
 It's typical for memory to be used to create a stack, a heap, in Java's case constant pools, and method areas. The heap is that part of memory where Java objects live, and it's the one and only part of memory that is in any way involved in the garbage collection process.
 *A heap is a heap is a heap. For the exam it's important to know that you can call it the heap, you can call it the garbage collectible heap, or you can call it Johnson, but there is one and only one heap.*
 
-##### When Does the Garbage Collector Run?
+#### When Does the Garbage Collector Run?
 The garbage collector is under the control of the JVM. The JVM decides when to run the garbage collector.
 
-##### How Does the Garbage Collector Work?
+#### How Does the Garbage Collector Work?
 You just can't be sure. The Java specification doesn't guarantee any particular implementation.
 You might hear that the garbage collector uses reference counting; once again maybe yes maybe no.
 *An object is eligible for garbage collection when no live thread can access it.*
@@ -474,14 +474,14 @@ When GC discovers an object that can't be reached by any live thread, it will co
 
 ### Writing Code That Explicitly Makes Objects Eligible for Collection
 
-##### Nulling a Reference
+#### Nulling a Reference
 The first way to remove a reference to an object is to set the reference variable that refers to the object to `null`.
 
-##### Reassigning a Reference Variable
+#### Reassigning a Reference Variable
 We can also decouple a reference variable from an object by setting the reference variable to refer to another object.
 When a method is invoked, any local variables created exist only for the duration of the method. Once the method has returned, the objects created in the method are eligible for garbage collection. If an object is returned from the method, its reference might be assigned to a reference variable in the method that called it, hence, it will not be eligible for collection.
 
-##### Isolating a Reference
+#### Isolating a Reference
 There is another way in which objects can become eligible for garbage collection, even if they still have valid references!
 A simple example is a class that has an instance variable that is a reference variable to another instance of the same class.
 
@@ -508,16 +508,16 @@ A simple example is a class that has an instance variable that is a reference va
 When the code reaches `// do complicated`, the three Island objects have instance variables so that they refer to each other, but their links to the outside world (`i2`, `i3`, and `i4`) have been nulled.
 These three objects are eligible for garbage collection.
 
-##### Forcing Garbage Collection
+#### Forcing Garbage Collection
 Garbage collection cannot be forced. 
 In reality, it is possible only to suggest to the JVM that it perform garbage collection. However, there are no guarantees the JVM will actually remove all of the unused objects from memory
 The garbage collection routines that Java provides are members of the Runtime class. The Runtime class is a special class that has a single object (a Singleton) for each main program. To get the Runtime instance use the method Runtime.getRuntime(), which returns the Singleton. Once you have the Singleton you can invoke the garbage collector using the `gc()` method.
 The simplest way to ask for garbage collection is `System.gc();`. After calling `System.gc()`, you will have as much free memory as possible.
 
-##### Cleaning Up Before Garbage Collection — the finalize() Method
+#### Cleaning Up Before Garbage Collection — the finalize() Method
 Java provides you a mechanism to run some code just before your object is deleted by the garbage collector. This code is located in a method named `finalize()` that all classes inherit from class Object.
 
-##### Tricky Little finalize() Gotcha's
+#### Tricky Little finalize() Gotcha's
 There are a couple of concepts concerning `finalize()` that you need to remember.
 
 * For any given object, `finalize()` will be called only once (at most) by the garbage collector.

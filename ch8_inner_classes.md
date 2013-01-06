@@ -38,10 +38,10 @@ class MyOuter {
 
 The preceding code is perfectly legal. Notice that the inner class is indeed accessing a private member of the outer class. That's fine, because the inner class is also a member of the outer class. As any member of the outer class can access any other member of the outer class, private or not, the inner class—also a member—can do the same.
 
-##### Instantiating an Inner Class #####
+#### Instantiating an Inner Class ####
 To create an instance of an inner class, *you must have an instance of the outer class* to tie to the inner class.
 
-##### Instantiating an Inner Class from Within the Outer Class #####
+#### Instantiating an Inner Class from Within the Outer Class ####
 
 ``` java
 class MyOuter {  
@@ -58,7 +58,7 @@ class MyOuter {
 }  
 ```
 
-##### Creating an Inner Class Object from Outside the Outer Class Instance Code #####
+#### Creating an Inner Class Object from Outside the Outer Class Instance Code ####
 Without a reference to an instance of the outer class, you can't instantiate the inner class from a `static` method of the outer class.
 
 ``` java
@@ -139,7 +139,7 @@ class MyOuter {
 * To reference the inner class instance itself, from *within* the inner class code, use `this`.
 * To reference the "*outer* `this`" (the outer class instance) from within the inner class code, use `NameOfOuterClass.this` (example, `MyOuter.this`).
 
-##### Member Modifiers Applied to Inner Classes #####
+#### Member Modifiers Applied to Inner Classes ####
 
 * `final`
 * `abstract`

@@ -2,7 +2,7 @@
 
 ## Overriding hashCode() and equals() (Objective 6.2) ##
 
-##### The toString() Method #####
+#### The toString() Method ####
 Override `toString()` when you want a mere mortal to be able to read something meaningful about the objects of your class.
 When you don't override the `toString()` method of class Object it gives you the class name followed by the @ symbol, followed by the unsigned hexadecimal representation of the object's hashcode.
 
@@ -10,7 +10,7 @@ When you don't override the `toString()` method of class Object it gives you the
 You saw that the String class and the wrapper classes have overridden the `equals()` method. So that you could compare two different objects (of the same type) to see if their contents are meaningfully equivalent.
 When you really need to know if two references are identical, use ==. But when you need to know if the objects themselves (not the references) are equal, use the `equals()` method.
 
-##### What It Means If You Don't Override equals() #####
+#### What It Means If You Don't Override equals() ####
 If you want objects of your class to be used as keys for a hashtable, then you must override `equals()` so that two different instances can be considered the same.
 
 ``` java
@@ -25,7 +25,7 @@ public boolean equals(Object o) {
 }
 ```
 
-##### The equals() Contract #####
+#### The equals() Contract ####
 
 * It is **reflexive**. For any reference value `x`, `x.equals(x)` should return `true`.
 * It is **symmetric**. For any reference values `x` and `y`, `x.equals(y)` should return `true` if and only if `y.equals(x)` returns `true`.
@@ -38,7 +38,7 @@ If two objects are considered equal using the `equals()` method, then they must 
 ### Overriding hashCode() ###
 Hashcodes are typically used to increase the performance of large collections of data. The hashcode value of an object is used by some collection classes. It isn't necessarily unique. Collections such as HashMap and HashSet use the hashcode value of an object to determine how the object should be *stored* in the collection, and the hashcode is used again to help *locate* the object in the collection.
 
-##### Understanding Hashcodes #####
+#### Understanding Hashcodes ####
 We don't introduce anything random, we simply have an algorithm that will always run the same way given a specific input, so the output will always be identical for any two identical inputs. The hashcode tells you only which bucket to go into, but not how to locate the name once we're in that bucket.
 
 In real-life hashing, it’s not uncommon to have more than one entry in a bucket. Hashing retrieval is a two-step process.
@@ -46,10 +46,10 @@ In real-life hashing, it’s not uncommon to have more than one entry in a bucke
 1. Find the right bucket (using `hashCode()` )
 2. Search the bucket for the right element (using `equals()` ).
 
-##### Implementing hashCode() #####
+#### Implementing hashCode() ####
 Now that we know that two equal objects must have identical hashcodes, is the reverse true? Do two objects with identical hashcodes have to be considered equal?
 
-##### The hashCode() Contract #####
+#### The hashCode() Contract ####
 
 * Whenever it is invoked on the same object more than once during an execution of a Java application, the `hashCode()` method must consistently return the same integer, provided  no information used in `equals()` comparisons on the object is modified. This integer need not remain consistent from one execution of an application to another execution of the same application.
 * If two objects are equal according to the `equals(Object)` method, then calling the `hashCode()` method on each of the two objects must produce the same integer result.
@@ -67,7 +67,7 @@ There are a few basic operations you'll normally use with collections:
 * Retrieve an object from the collection (without removing it).
 * Iterate through the collection, looking at each element (object) one after another.
 
-##### Key Interfaces and Classes of the Collections Framework #####
+#### Key Interfaces and Classes of the Collections Framework ####
 The core interfaces you need to know for the exam (and life in general) are the following nine:
     Collection, Set, SortedSet, List, Map, SortedMap, Queue, NavigableSet, NavigableMap.
 
@@ -95,10 +95,10 @@ Collections come in four basic flavors:
 But there are sub-flavors within those four flavors of collections: Sorted, Unsorted, Ordered, Unordered.
 An implementation class can be unsorted and unordered, ordered but unsorted, or both ordered and sorted. But an implementation can never be sorted but unordered, because sorting is a specific type of ordering.
 
-##### Ordered #####
+#### Ordered ####
 When a collection is ordered, it means you can iterate through the collection in a specific (not-random) order. A Hashtable collection is not ordered. An ArrayList, however, keeps the order established by the elements' index position.
 
-##### Sorted #####
+#### Sorted ####
 A *sorted* collection means that the order in the collection is determined according to some rule or rules, known as the sort order. You put objects into the collection, and the collection will figure out what order to put them in, based on the sort order. A collection that keeps an order (such as any List, which uses insertion order) is not really considered *sorted* unless it sorts using some kind of sort order.
 Through an interface (*Comparable*) that defines how instances of a class can be compared to one another.
 
@@ -149,12 +149,12 @@ In general, collections can hold Objects but not primitives. Prior to Java 5, a 
 
 ### Sorting Collections and Arrays ###
 
-##### Sorting Collections #####
+#### Sorting Collections ####
 ArrayList doesn't give you any way to sort its contents, but the java.util.Collections class does.
 
     `Collections.sort(stuff);`
 
-##### The Comparable Interface #####
+#### The Comparable Interface ####
 The Comparable interface is used by the Collections.sort() method and the java.util.Arrays.sort() method to sort Lists and arrays of objects, respectively. To implement Comparable, a class must implement a single method, compareTo().
 
     `int x = thisObject.compareTo(anotherObject);`
@@ -169,11 +169,11 @@ The `sort()` method uses `compareTo()` to determine how the List or object array
 
     It’s important to remember that when you override `equals()` you MUST take an argument of type `Object`, but that when you override `compareTo()` you should take an argument of the type you’re sorting.
 
-##### Sorting with Comparator #####
+#### Sorting with Comparator ####
 While you were looking up the `Collections.sort()` method you might have noticed that there is an overloaded version of `sort()` that takes both a List AND something called a *Comparator*. The Comparator interface gives you the capability to sort a given collection any number of different ways. The Comparator interface is also very easy to implement, having only one method, `compare()`.
 The `Comparator.compare()` method returns an `int` whose meaning is the same as the `Comparable.compareTo()` method's return value.
 
-##### Sorting with the Arrays Class #####
+#### Sorting with the Arrays Class ####
 The `Arrays.sort()` method is overridden in the same way the `Collections.sort()` method is.
 
 * `Arrays.sort(arrayToSort)`
@@ -182,7 +182,7 @@ The `Arrays.sort()` method is overridden in the same way the `Collections.sort()
 The `Arrays.sort()` methods that sort primitives always sort based on natural order.
 The `sort()` methods for both the Collections class and the Arrays class are `static` methods, and that they alter the objects they are sorting, instead of returning a different sorted object.
 
-##### Searching Arrays and Collections #####
+#### Searching Arrays and Collections ####
 The Collections class and the Arrays class both provide methods that allow you to search for a specific element.
 
 * Searches are performed using the `binarySearch()` method.
@@ -193,18 +193,18 @@ The Collections class and the Arrays class both provide methods that allow you t
 * If the collection/array you want to search was sorted in natural order, it *must* be searched in natural order.
 * If the collection/array you want to search was sorted using a Comparator, it *must* be searched using the same Comparator passed as the second argument to the `binarySearch()` method. Comparators cannot be used when searching arrays of primitives.
 
-##### Using Lists #####
+#### Using Lists ####
 Lists are usually used to keep things in some kind of order. You can use a LinkedList to create a first-in, first-out queue. You can use an ArrayList to keep track of what locations were visited, and in what order.
 The two Iterator methods you need to understand for the exam are:
 
 * **boolean hasNext()** Returns `true` if there is at least one more element in the collection being traversed. Invoking `hasNext()` does NOT move you to the next element of the collection.
 * **Object next()** This method returns the next object in the collection, AND moves you forward to the element after the element just returned.
 
-##### Using Sets #####
+#### Using Sets ####
 Remember that Sets are used when you don't want any duplicates in your collection. If you attempt to add an element to a set that already exists in the set, the duplicate element will not be added, and the `add()` method will return `false`.
 HashSets tend to be very fast because, as we discussed earlier, they use hashcodes. You can also create a TreeSet, which is a Set whose elements are sorted. The issue is that whenever you want a collection to be sorted, its elements must be mutually comparable.
 
-##### Using Maps #####
+#### Using Maps ####
 Remember that when you use a class that implements Map, any classes that you use as a part of the keys for that map must override the `hashCode()` and `equals()` methods.
 
 1. Use the `hashCode()` method to find the correct bucket
@@ -216,21 +216,21 @@ The NavigableSet methods related to this type of navigation are `lower()`, `floo
 
 ### Other Navigation Methods ###
 
-##### Polling #####
+#### Polling ####
 The idea of polling is that we want *both* to retrieve *and* remove an element from either the beginning or the end of a collection. In TreeSet: pollFirst(), pollLast() returns and removes the first entry in the set, in TreeMap: pollFirstEntry(), pollLastEntry() to retrieve and remove key-value pairs.
 
-##### Descending Order #####
+#### Descending Order ####
 The important methods for the exam are TreeSet.descendingSet() and TreeMap.descendingMap().
 
 ### Backed Collections ###
 The `subMap()` method is making a copy of a portion of the TreeMap.
 
-##### Using the PriorityQueue Class #####
+#### Using the PriorityQueue Class ####
 PriorityQueue orders its elements using a user-defined priority. PriorityQueue can be ordered using a Comparator, which lets you define any ordering you want. Queues have a few methods not found in other collection interfaces: `peek()`, `poll()`, and `offer()`. `offer()` method adds element to the PriorityQueue. `poll()` method returns the highest priority entry AND removes the entry from the queue. `peek()` returns the highest priority element in the queue without removing it.
 
 ## Generic Types (Objectives 6.3 and 6.4) ##
 
-##### The Legacy Way to Do Collections #####
+#### The Legacy Way to Do Collections ####
 A non-generic collection can hold any kind of object! A non-generic collection is quite happy to hold anything that is NOT a primitive.
 
 ### Generics and Legacy Code ###
@@ -351,7 +351,7 @@ Bar class won't compile because it does an `add()` in a method that uses a wildc
 
 ### Generic Declarations ###
 
-##### Making Your Own Generic Class #####
+#### Making Your Own Generic Class ####
 
 ``` java
 public class TestGenerics<T> { // as the class type  
@@ -404,7 +404,7 @@ public class AnimalHolder<T extends Animal> { // use "T" instead of "?"
 }   
 ```
 
-##### Creating Generic Methods #####
+#### Creating Generic Methods ####
 
 Imagine you want to create a method that takes an instance of any type, instantiates an ArrayList of that type, and adds the instance to the ArrayList. The class itself doesn't need to be generic;
 

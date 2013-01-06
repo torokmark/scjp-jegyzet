@@ -14,13 +14,13 @@ We covered most of the functionality of the assignment operator, "=":
 * Remember that a reference variable isn't an object; it's a way to *get* to an object.
 * When assigning a value to a reference variable, *type* matters. Remember the rules for supertypes, subtypes, and arrays.
 
-##### Compound Assignment Operators
+#### Compound Assignment Operators
 
 ### Relational Operators ###
 Relational operators always result in a boolean (`true` or `false`) value.
 When comparing a character with a character, or a character with a number, Java will use the Unicode value of the character as the numerical value, for comparison.
 
-##### "Equality" Operators #####
+#### "Equality" Operators ####
 Java also has two relational operators (sometimes called "equality operators") that compare two similar "things" and return a `boolean` the represents what's true about the two "things" being equal. These operators are:
 
 * == equals (also known as "equal to")
@@ -34,10 +34,10 @@ There are four different types of things that can be tested:
 * boolean primitives
 * Object reference variables
 
-##### Equality for Primitives #####
+#### Equality for Primitives ####
 if a floating-point number is compared with an integer and the values are the same, the == operator returns `true` as expected.
 
-##### Equality for Reference Variables #####
+#### Equality for Reference Variables ####
    
     ``` java
     JButton a = new JButton("Exit");  
@@ -47,14 +47,14 @@ if a floating-point number is compared with an integer and the values are the sa
 After running this code, both variable a and variable b will refer to the same object. Reference variables can be tested to see if they refer to the same object by using the == operator. The == operator is looking at the bits in the variable, so for reference variables this means that if the bits in both reference variables are identical, then both refer to the same object.
 The == operator will not test whether two objects are "meaningfully equivalent".
 
-##### Equality for Enums #####
+#### Equality for Enums ####
 Once you've declared an enum, it's not expandable. At runtime, there's no way to make additional enum constants. You can have as many variables as you'd like refer to a given enum constant, so it's important to be able to compare two enum reference variables to see if they're "equal". 
 You can use either the == operator or the `equals()` method to determine if two variables are referring to the same enum constant.
 
 ### instanceof Comparison ###
 The `instanceof` operator is used for object reference variables only, and you can use it to check whether an object is of a particular type.
 
-##### instanceof Compiler Error ##### 
+#### instanceof Compiler Error #### 
 You can't use the `instanceof` operator to test across two different class hierarchies.
 
     ``` java
@@ -75,12 +75,12 @@ The basic arithmetic operators:
 * * multiplication
 * / division
 
-##### The Remainder (%) Operator #####
+#### The Remainder (%) Operator ####
 The remainder operator divides the left operand by the right operand, and the result is the remainder.
 
 Expressions are evaluated from left to right by default. You can change this sequence, or *precedence*, by adding parentheses. Also remember that the * , / , and % operators have a higher precedence than the + and - operators.
 
-##### String Concatenation Operator #####
+#### String Concatenation Operator ####
 The plus sign can also be used to concatenate two strings together.
 
     ``` java
@@ -103,7 +103,7 @@ If you put parentheses around the two `int` variables:
 The rule to remember is this:
 *If either operand is a String, the + operator becomes a String concatenation operator. If both operands are numbers, the + operator is the addition operator.*
 
-##### Increment and Decrement Operators #####
+#### Increment and Decrement Operators ####
 Java has two operators that will increment or decrement a variable by exactly one.
 
 * ++ increment (prefix and postfix)
@@ -118,10 +118,10 @@ The conditional operator is a *ternary* operator (it has three operands) and is 
 
 ### Logical Operators ###
 
-##### Bitwise Operators (Not on the Exam!) #####
+#### Bitwise Operators (Not on the Exam!) ####
 Okay, this is going to be confusing. Of the six logical operators listed above, three of them (&, |, and ^) can also be used as "bitwise" operators.
 
-##### Short-Circuit Logical Operators #####
+#### Short-Circuit Logical Operators ####
 The two *short-circuit* logical operators.
 
 * && short-circuit AND
@@ -132,7 +132,7 @@ The && and || operators evaluate only `boolean` values.
 *The short-circuit feature of the && operator is so named because it doesn't waste its time on pointless evaluations.* A short-circuit && evaluates the left side of the operation first (operand one), and if it resolves to `false`, the && operator doesn't bother looking at the right side of the expression (operand two) since the && operator already *knows* that the complete expression can't possibly be `true`.
 The || operator is similar to the && operator, except that it evaluates to `true` if EITHER of the operands is true.
 
-##### Logical Operators (Not Short-Circuit) #####
+#### Logical Operators (Not Short-Circuit) ####
 Two *non-short-circuit* logical operators.
 
 * & non-short-circuit AND
@@ -140,7 +140,7 @@ Two *non-short-circuit* logical operators.
 
 They evaluate both sides of the expression, always!
 
-##### Logical Operators ^ and ! #####
+#### Logical Operators ^ and ! ####
 Two logical operators:
 
 * ^ exclusive-OR (XOR)

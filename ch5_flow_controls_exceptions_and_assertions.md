@@ -55,12 +55,12 @@ It would be even easier to read:
 	}  
 	```
 
-##### Legal Expressions for if Statements #####
+#### Legal Expressions for if Statements ####
 The expression in an `if` statement must be a `boolean` expression.
 
 ### switch Statements ###
 
-##### Legal Expressions for switch and case #####
+#### Legal Expressions for switch and case ####
 The general form of the `switch` statement is:
 
 	``` java
@@ -113,13 +113,13 @@ It *is* legal to leverage the power of boxing in a `switch` expression.
 	}  
 	```
 
-##### Break and Fall-Through in switch Blocks #####
+#### Break and Fall-Through in switch Blocks ####
 
 **`case` constants are evaluated from the top down, and the first `case` constant that matches the `switch`'s expression is the execution *entry point*.**
 
 When the program encounters the keyword `break` during the execution of a `switch` statement, execution will immediately move out of the `switch` block to the next statement after the `switch`.
 
-##### The Default Case #####
+#### The Default Case ####
 The `default` case doesn’t have to come at the end of the `switch`.
 The rule to remember is that `default` works just like any other `case`.
 
@@ -141,25 +141,25 @@ The `do` loop is similar to the `while` loop, except that the expression is not 
 
 ### Using for Loops ###
 
-##### The Basic for Loop #####
+#### The Basic for Loop ####
 The `for` loop is especially useful for flow control when you already know how many times you need to execute the statements in the loop's block. The `for` loop declaration has three main parts:
 
 * Declaration and initialization of variables
 * The boolean expression (conditional test)
 * The iteration expression
 
-##### The Basic for Loop: Declaration and Initialization #####
+#### The Basic for Loop: Declaration and Initialization ####
 The first part of the `for` statement lets you declare and initialize zero, one, or multiple variables of the same type inside the parentheses after the `for` keyword. More than one variable of the same type:
 
 	``` java
 	for (int x = 10, y = 3; y > 3; y++) { }  
 	```
 
-##### Basic for Loop: Conditional (boolean) Expression #####
+#### Basic for Loop: Conditional (boolean) Expression ####
 Must evaluate to a `boolean` value.
 *You can have only one test expression.*
 
-##### Basic for Loop: Iteration Expression #####
+#### Basic for Loop: Iteration Expression ####
 After each execution of the body of the `for` loop, the iteration expression is executed.
 
 **Barring a forced exit, evaluating the iteration expression and then evaluating the conditional expression are always the last two things that happen in a `for` loop!**
@@ -168,7 +168,7 @@ After each execution of the body of the `for` loop, the iteration expression is 
 * `return` Execution jumps immediately back to the calling method.
 * `System.exit()` All program execution stops; the VM shuts down.
 
-##### Basic for Loop: for Loop Issues #####
+#### Basic for Loop: for Loop Issues ####
 None of the three sections of the `for` declaration are required.
 
 	``` java
@@ -206,7 +206,7 @@ Three sections of the for loop are independent of each other.
 	// iterate  
 	```
 
-##### The Enhanced for Loop (for Arrays) #####
+#### The Enhanced for Loop (for Arrays) ####
 The enhanced `for` loop, new to Java 6, is a specialized `for` loop that simplifies looping through an array or a collection.
 The enhanced `for` has *two* components.
 
@@ -311,18 +311,18 @@ All other `catch` clauses associated with the same `try` are ignored, if a `fina
 
 ## Common Exceptions and Errors (Exam Objective 2.6) ##
 
-##### Where Exceptions Come From #####
+#### Where Exceptions Come From ####
 
 * **JVM exceptions** Those exceptions or errors that are either exclusively or most logically thrown by the JVM.
 * **Programmatic exceptions** Those exceptions that are thrown explicitly by application and/or API programmers.
 
 
-##### JVM Thrown Exceptions #####
+#### JVM Thrown Exceptions ####
 
 * NullPointerException.
 * StackOverflowError.
 
-##### Programmatically Thrown Exceptions #####
+#### Programmatically Thrown Exceptions ####
 Created by an application and/or API developer.
 
 
@@ -350,14 +350,14 @@ Assertions come in two flavors: *really simple* and *simple*, as follows:
 	}  
 	```
 
-##### Assertion Expression Rules #####
+#### Assertion Expression Rules ####
 Assertions can have either one or two expressions, depending on whether you're using the "simple" or the "really simple". The first expression must always result in a boolean value! Follow the same rules you use for `if` and `while` tests. If its result is not `true`, however, then your assumption was wrong and
 you get an `AssertionError`.
 The second expression, used only with the simple version of an `assert` statement, can be anything that results in a value. The second expression is used to generate a `String` message that displays in the stack trace. It works much like `System.out.println()` in that you can pass it a primitive or an object.
 
 ### Enabling Assertions ###
 
-##### Identifier vs. Keyword #####
+#### Identifier vs. Keyword ####
 Prior to version 1.4, you might very well have written code like this:
 
 	``` java
@@ -371,25 +371,25 @@ Prior to version 1.4, you might very well have written code like this:
 
 	`javac -source 1.4 com/geeksanonymous/TestClass.java`
 
-##### Use Version 6 of java and javac #####
+#### Use Version 6 of java and javac ####
 
-##### Compiling Assertion-Aware Code #####
+#### Compiling Assertion-Aware Code ####
 The Java 6 compiler will use the `assert` keyword by default. Otherwise, the compiler will generate an error message if it finds the word `assert` used as an identifier.
 
 	`javac -source 1.3 OldCode.java`  
 	`-source 1.6 or -source 6.`
 
-##### Enabling Assertions at Runtime #####
+#### Enabling Assertions at Runtime ####
 
 	`java -ea com.geeksanonymous.TestClass`  
 	`java -enableassertions com.geeksanonymous.TestClass`
 
-##### Disabling Assertions at Runtime #####
+#### Disabling Assertions at Runtime ####
 
 	`java -da com.geeksanonymous.TestClass`  
 	`java -disableassertions com.geeksanonymous.TestClass`
 
-##### Selective Enabling and Disabling #####
+#### Selective Enabling and Disabling ####
 The command-line switches for assertions can be used in various ways:
 
 * **With no arguments (as in the preceding examples)** Enables or disables assertions in all classes, except for the system classes.
@@ -406,11 +406,11 @@ Enable assertions in general, but disable them in the package `com.geeksanonymou
 
 ### Using Assertions Appropriately ###
 
-##### Don't Use Assertions to Validate Arguments to a Public Method #####
+#### Don't Use Assertions to Validate Arguments to a Public Method ####
 A `public` method might be called from code that you don't control. Because `public` methods are part of your interface to the outside world, you're supposed to guarantee that any constraints on the arguments will be enforced by the method itself.
 If you need to validate `public` method arguments, you'll probably use exceptions to throw, say, an `IllegalArgumentException` if the values passed to the `public` method are invalid.
 
-##### Do Use Assertions to Validate Arguments to a Private Method #####
+#### Do Use Assertions to Validate Arguments to a Private Method ####
 When you assume that the logic in code calling your `private` method is correct, you can test that assumption with an assertion as follows:
 
 	``` java
@@ -420,9 +420,9 @@ When you assume that the logic in code calling your `private` method is correct,
 	}
 	```
 
-##### Don't Use Assertions to Validate Command-Line arguments #####
+#### Don't Use Assertions to Validate Command-Line arguments ####
 
-##### Do Use Assertions, Even in Public Methods, to Check for Cases that You Know Are Never, Ever Supposed to Happen #####
+#### Do Use Assertions, Even in Public Methods, to Check for Cases that You Know Are Never, Ever Supposed to Happen ####
 This can include code blocks that should never be reached, including the default of
 a `switch` statement as follows:
 
@@ -435,7 +435,7 @@ a `switch` statement as follows:
 	}
 	```
 
-##### Don't Use Assert Expressions that Can Cause Side Effects! #####
+#### Don't Use Assert Expressions that Can Cause Side Effects! ####
 The following would be a very bad idea:
 
 	``` java

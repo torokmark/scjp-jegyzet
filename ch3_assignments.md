@@ -208,16 +208,22 @@ Arrays are objects in Java that store multiple variables of the same type. Array
 
 Arrays are declared by stating the type of element the array will hold, which can be an object or a primitive, followed by square brackets to the left or right of the identifier.
 
-    `int[] key; // brackets before name (recommended)`  
-    `int key []; // brackets after name (legal but less readable)`  
+``` java
+int[] key; // brackets before name (recommended)
+int key []; // brackets after name (legal but less readable)
+```
   
-    `Thread[] threads; // Recommended`  
-    `Thread threads[]; // Legal but less readable`  
+``` java
+Thread[] threads; // Recommended
+Thread threads[]; // Legal but less readable
+```
 
 We can also declare multidimensional arrays, which are in fact arrays of arrays.
 
-    `String[][][] occupantName; // recommended`  
-    `String[] ManagerName []; // yucky, but legal`  
+``` java
+String[][][] occupantName; // recommended
+String[] ManagerName []; // yucky, but legal
+```
 
 It is never legal to include the size of the array in your declaration.
 
@@ -233,7 +239,9 @@ The most straightforward way to construct an array is to use the keyword new fol
 
 Multidimensional arrays are simply arrays of arrays.
 
-    `int[][] myArray = new int[3][];`
+``` java
+int[][] myArray = new int[3][];
+```
 
 Notice that only the first brackets are given a size.
 
@@ -304,8 +312,10 @@ There are three most common approaches for creating wrapper objects. Some approa
 #### The Wrapper Constructors
 All of the wrapper classes except Character provide two constructors: one that takes a primitive of the type being constructed, and one that takes a String representation of the type being constructed.
 
-    `Integer i1 = new Integer(42);`  
-    `Integer i2 = new Integer("42");`  
+``` java
+Integer i1 = new Integer(42);
+Integer i2 = new Integer("42");
+```
 
 The constructors for the Boolean wrapper take either a `boolean` value `true` or `false`, or a String.
 

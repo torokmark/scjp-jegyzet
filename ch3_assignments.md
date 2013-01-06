@@ -75,11 +75,11 @@ A byte-sized holder can't hold as many bits as an int-sized holder.
 `byte b = 27;`  
 `byte b = (byte) 27;    // Explicitly cast the int literal to a byte`  
 
-    ``` java  
-    byte a = 3;  
-    byte b = 8;  
-    byte c = b + c;  
-    ```
+``` java  
+byte a = 3;  
+byte b = 8;  
+byte c = b + c;  
+```
 
 Won't compile! `...possible loss of precision...`
 We tried to assign the sum of two bytes to a byte variable, the result of which (11) was definitely small enough to fit into a byte, but the compiler didn't care. It knew the rule about int-or-smaller expressions always resulting in an int. It would have compiled if we'd done the *explicit* cast:

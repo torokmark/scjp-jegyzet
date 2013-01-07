@@ -83,21 +83,21 @@ The differences between inner class instantiation code that's *within* the outer
 
 * From *inside* the outer class instance code, use the inner class name in the normal way:
     
-        ``` java
-        MyInner mi = new MyInner();
-        ```
+``` java
+MyInner mi = new MyInner();
+```
 
 * From *outside* the outer class instance code (including static method code within the outer class), the inner class name must now include the outer class's name:
     
-        ``` java
-        MyOuter.MyInner
-        ```
+``` java
+MyOuter.MyInner
+```
 
     To instantiate it, you must use a reference to the outer class:
 
-        ``` java
-        new MyOuter().new MyInner(); or outerObjRef.new MyInner();
-        ```
+``` java
+new MyOuter().new MyInner(); or outerObjRef.new MyInner();
+```
     
     if you already have an instance of the outer class.
 

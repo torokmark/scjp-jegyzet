@@ -107,12 +107,12 @@ The differences between inner class instantiation code that's *within* the outer
 * The `this` reference is a reference to the currently executing object. In other words, the object whose reference was used to invoke the currently running method.
 * The `this` reference is the way an object can pass a reference to itself to some other code, as a method argument:
 
-    ``` java
-    public void myMethod() {   
-        MyClass mc = new MyClass();   
-        mc.doStuff(this); // pass a ref to object running myMethod   
-    }   
-    ```
+``` java
+public void myMethod() {   
+    MyClass mc = new MyClass();   
+    mc.doStuff(this); // pass a ref to object running myMethod   
+}   
+```
 
 
 ``` java

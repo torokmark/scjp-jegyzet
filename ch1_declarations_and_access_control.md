@@ -250,9 +250,12 @@ Java allows you to create methods that can take a variable number of arguments.
     ``` java
     doStuff("a", 2); // invoking doStuff, so a & 2 are arguments
     ```
-    
+
 * **parameters** The things in the method's signature that indicate what the method must receive when it's invoked:
-    `void doStuff(String s, int a) { }   // we're expecting two parameters: String and int`
+
+    ``` java
+    void doStuff(String s, int a) { }   // we're expecting two parameters: String and int
+    ```
 
 Review the declaration rules for var-args:
 
@@ -292,8 +295,7 @@ Instance variables are defined inside the class, but outside of any method, and 
 
 That instance variables:
 
-* Can use any of the four access levels (which means they can be marked with
-any of the three access modifiers)
+* Can use any of the four access levels (which means they can be marked with any of the three access modifiers)
 * Can be marked final
 * Can be marked transient
 * Cannot be marked abstract

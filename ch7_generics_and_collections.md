@@ -336,7 +336,9 @@ public void addAnimal(List< ? extends Animal> animals) {
 First, the `<? extends Animal>` means that you can take any subtype of Animal; however, that subtype can be EITHER a subclass of a class (abstract or concrete) OR a type that implements the interface after the word `extends`. The keyword `extends` in the context of a wildcard represents BOTH subclasses and interface implementations. There is no `<? implements Serializable>` syntax.
 There is only ONE wildcard keyword that represents both interface implementations and subclasses. And that keyword is `extends`.
 
-`public void addAnimal(List<? super Dog> animals)`
+``` java
+public void addAnimal(List<? super Dog> animals)
+```
 
 Hey compiler, please accept any List with a generic type that is of type Dog, or a supertype of Dog. Nothing lower in the inheritance tree can come in, but anything higher than Dog is OK.
 

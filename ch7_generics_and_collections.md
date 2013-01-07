@@ -337,7 +337,7 @@ First, the `<? extends Animal>` means that you can take any subtype of Animal; h
 There is only ONE wildcard keyword that represents both interface implementations and subclasses. And that keyword is `extends`.
 
 ``` java
-public void addAnimal(List<? super Dog> animals)
+public void addAnimal(List< ? super Dog> animals)
 ```
 
 Hey compiler, please accept any List with a generic type that is of type Dog, or a supertype of Dog. Nothing lower in the inheritance tree can come in, but anything higher than Dog is OK.

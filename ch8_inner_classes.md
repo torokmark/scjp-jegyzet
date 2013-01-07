@@ -176,7 +176,7 @@ To *use* the inner class you must make an instance of it somewhere *within the m
 the local variables aren't guaranteed to be alive as long as the method-local inner class object, the inner class object can't use them. *Unless the local variables are marked `final`!*
 You can't, for example, mark a method-local inner class `public`, `private`, `protected`, `static`, `transient`, and the like. For the purpose of the exam, the only modifiers you can apply to a method-local inner class are `abstract` or `final`.
 
-    A local class declared in a `static` method has access to only `static` members of the enclosing class, since there is no associated instance of the enclosing class.
+A local class declared in a `static` method has access to only `static` members of the enclosing class, since there is no associated instance of the enclosing class.
 
 ## Anonymous Inner Classes ##
 Inner classes declared without any class name at all (hence the word *anonymous*).

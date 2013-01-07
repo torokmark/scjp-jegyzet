@@ -8,18 +8,21 @@
 Each character in a string is a 16-bit Unicode character.
 Strings are objects. Just like other objects, you can create an instance of a String with the `new` keyword, as follows:
 
-	``` java
-	String s = new String();  
-	s = "abcdef";  
-	String s = new String("abcdef");  
+``` java
+String s = new String();  
+s = "abcdef";  
+String s = new String("abcdef");  
 
-	String s = "abcdef";  
-	String s2 = s; // refer s2 to the same String as s  
-	```
+String s = "abcdef";  
+String s2 = s; // refer s2 to the same String as s  
+```
 
 Once you have assigned a String a value, that value can never change— it's immutable.
 The good news is that while the String object is immutable, its reference variable is not, so to continue with our previous example:
-	`s = s.concat(" more stuff");`
+
+``` java    
+s = s.concat(" more stuff");
+```
 
 Let's look at what really happened:
 The VM took the value of String s (which was "`abcdef`"), and tacked "` more stuff`" onto the end, giving us the value "`abcdef more stuff`". Since Strings are immutable, the VM couldn't stuff this new value into the old String referenced by s, so it created a new String object, gave it the value "`abcdef more stuff`", and made s refer to it. Technically there are now three String objects, because the literal argument to concat, "` more stuff`", is itself a new String object.
@@ -119,16 +122,16 @@ The two special methods you define must have signatures that look EXACTLY like t
 
 ``` java
 private void writeObject(ObjectOutputStream os) {
-	// your code for saving the Collar variables
+    // your code for saving the Collar variables
 }
 private void readObject(ObjectInputStream is) {
-	// your code to read the Collar state, create a new Collar,
-	// and assign it to the Dog
+    // your code to read the Collar state, create a new Collar,
+    // and assign it to the Dog
 }
 ```
 
 #### How Inheritance Affects Serialization ####
-If a superclass is Serializable, then according to normal Java interface rules, all subclasses of that class automatically implement Serializable implicitly. 	
+If a superclass is Serializable, then according to normal Java interface rules, all subclasses of that class automatically implement Serializable implicitly.   
 
 When an object is constructed using `new` the following things happen:
 
@@ -218,11 +221,11 @@ Here's a rundown of the format string elements you'll need to know for the exam:
 
 * **arg_index** An integer followed directly by a $, this indicates which argument should be printed in this position.
 * **flags** While many flags are available, for the exam you'll need to know:
-	* "-" Left justify this argument
-	* "+" Include a sign (+ or -) with this argument
-	* "0" Pad this argument with zeroes
-	* "," Use locale-specific grouping separators (i.e., the comma in 123,456)
-	* "(" Enclose negative numbers in parentheses
+    * "-" Left justify this argument
+    * "+" Include a sign (+ or -) with this argument
+    * "0" Pad this argument with zeroes
+    * "," Use locale-specific grouping separators (i.e., the comma in 123,456)
+    * "(" Enclose negative numbers in parentheses
 * **width** This value indicates the minimum number of characters to print.
 * **precision** For the exam you'll only need this when formatting a floating-point number, and in the case of floating point numbers, precision indicates the number of digits to print after the decimal point.
 * **conversion** The type of argument you'll be formatting. (b boolean, c char, d integer, f floating point, s string).

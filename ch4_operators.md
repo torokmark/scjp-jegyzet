@@ -39,10 +39,10 @@ if a floating-point number is compared with an integer and the values are the sa
 
 #### Equality for Reference Variables ####
    
-    ``` java
-    JButton a = new JButton("Exit");  
-    JButton b = a;  
-    ```
+``` java
+JButton a = new JButton("Exit");  
+JButton b = a;  
+```
 
 After running this code, both variable a and variable b will refer to the same object. Reference variables can be tested to see if they refer to the same object by using the == operator. The == operator is looking at the bits in the variable, so for reference variables this means that if the bits in both reference variables are identical, then both refer to the same object.
 The == operator will not test whether two objects are "meaningfully equivalent".
@@ -57,15 +57,15 @@ The `instanceof` operator is used for object reference variables only, and you c
 #### instanceof Compiler Error #### 
 You can't use the `instanceof` operator to test across two different class hierarchies.
 
-    ``` java
-    class Cat { }  
-    class Dog {  
-        public static void main(String [] args) {  
-            Dog d = new Dog();  
-            System.out.println(d instanceof Cat);  
-        }  
+``` java
+class Cat { }  
+class Dog {  
+    public static void main(String [] args) {  
+        Dog d = new Dog();  
+        System.out.println(d instanceof Cat);  
     }  
-    ```
+}  
+```
 
 ### Arithmetic Operators ###
 The basic arithmetic operators:
@@ -83,22 +83,22 @@ Expressions are evaluated from left to right by default. You can change this seq
 #### String Concatenation Operator ####
 The plus sign can also be used to concatenate two strings together.
 
-    ``` java
-    String a = "String";  
-    int b = 3;  
-    int c = 7;  
-    System.out.println(a + b + c);  
-    ```
+``` java
+String a = "String";  
+int b = 3;  
+int c = 7;  
+System.out.println(a + b + c);  
+```
 
 The `int` values were simply treated as characters and glued on to the right side of the String, giving the result:
 
-    `String37`
+    String37
 
 If you put parentheses around the two `int` variables: 
     
-    ``` java
-    System.out.println(a + (b + c));  // the result is String10
-    ```
+``` java
+System.out.println(a + (b + c));  // the result is String10
+```
 
 The rule to remember is this:
 *If either operand is a String, the + operator becomes a String concatenation operator. If both operands are numbers, the + operator is the addition operator.*

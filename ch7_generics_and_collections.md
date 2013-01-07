@@ -145,19 +145,25 @@ In many ways, `ArrayList<String>` is similar to a `String[]` in that it declares
 ### Autoboxing with Collections ###
 In general, collections can hold Objects but not primitives. Prior to Java 5, a very common use for the wrapper classes was to provide a way to get a primitive into a collection.
  
-    `myInts.add(42); // autoboxing handles it!`
+``` java
+myInts.add(42); // autoboxing handles it!
+```
 
 ### Sorting Collections and Arrays ###
 
 #### Sorting Collections ####
 ArrayList doesn't give you any way to sort its contents, but the java.util.Collections class does.
 
-    `Collections.sort(stuff);`
+``` java
+Collections.sort(stuff);
+```
 
 #### The Comparable Interface ####
 The Comparable interface is used by the Collections.sort() method and the java.util.Arrays.sort() method to sort Lists and arrays of objects, respectively. To implement Comparable, a class must implement a single method, compareTo().
 
-    `int x = thisObject.compareTo(anotherObject);`
+``` java
+int x = thisObject.compareTo(anotherObject);
+```
 
 The `compareTo()` method returns an int with the following characteristics:
 
@@ -167,7 +173,7 @@ The `compareTo()` method returns an int with the following characteristics:
 
 The `sort()` method uses `compareTo()` to determine how the List or object array should be sorted.
 
-    It’s important to remember that when you override `equals()` you MUST take an argument of type `Object`, but that when you override `compareTo()` you should take an argument of the type you’re sorting.
+It’s important to remember that when you override `equals()` you MUST take an argument of type `Object`, but that when you override `compareTo()` you should take an argument of the type you’re sorting.
 
 #### Sorting with Comparator ####
 While you were looking up the `Collections.sort()` method you might have noticed that there is an overloaded version of `sort()` that takes both a List AND something called a *Comparator*. The Comparator interface gives you the capability to sort a given collection any number of different ways. The Comparator interface is also very easy to implement, having only one method, `compare()`.

@@ -114,7 +114,7 @@ The operator is placed either before (prefix) or after (postfix) a variable to c
 ### Conditional Operator ###
 The conditional operator is a *ternary* operator (it has three operands) and is used to evaluate `boolean` expressions. Like an *if* statement except instead of executing a block of code if the test is `true`, a conditional operator will assign a value to a variable.
 
-    `x =` (boolean expression) `?` value to assign if `true :` value to assign if `false`
+`x =` (boolean expression) `?` value to assign if `true :` value to assign if `false`
 
 ### Logical Operators ###
 

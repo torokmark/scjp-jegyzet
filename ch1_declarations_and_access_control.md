@@ -246,7 +246,9 @@ Remember, `strictfp` forces floating points (and any floating-point operations) 
 Java allows you to create methods that can take a variable number of arguments.
 
 * **arguments** The things you specify between the parentheses when you're invoking a method:
-    `doStuff("a", 2); // invoking doStuff, so a & 2 are arguments`
+    ``` java
+    doStuff("a", 2); // invoking doStuff, so a & 2 are arguments
+    ```
 * **parameters** The things in the method's signature that indicate what the method must receive when it's invoked:
     `void doStuff(String s, int a) { }   // we're expecting two parameters: String and int`
 

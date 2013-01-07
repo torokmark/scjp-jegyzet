@@ -259,12 +259,12 @@ We've discussed that the `catch` keyword allows you to specify a particular type
 When an exception is thrown, Java will try to find (by looking at the available `catch` clauses from the top down) a `catch` clause for the exception type. If it does not find a `catch` clause that matches a supertype for the exception, then the exception is propagated down the call stack.
 The handlers for the most specific exceptions must always be placed above those for more general exceptions. Otherwise it won't compile.
 
-    The FileNotFoundException was placed above the handler for the IOException. The opposite way, the program will not compile.
+The FileNotFoundException was placed above the handler for the IOException. The opposite way, the program will not compile.
 
 ### Exception Declaration and the Public Interface ###
 As a method must specify what type and how many arguments it accepts and what is returned, the exceptions that a method can throw must be *declared*.
 
-    Unless the exceptions are subclasses of `RuntimeException`.
+Unless the exceptions are subclasses of `RuntimeException`.
 
 The list of thrown exceptions is part of a method's public interface. The `throws` keyword is used as follows to list the exceptions that a method can throw:
 
@@ -332,7 +332,7 @@ Created by an application and/or API developer.
 If your assertion turns out to be wrong (`false`), then a stop-the-world `AssertionError` is thrown right then.
 Assertions come in two flavors: *really simple* and *simple*, as follows:
 
-    Really simple:
+Really simple:
 
 ``` java
 private void doStuff() {  
@@ -341,7 +341,7 @@ private void doStuff() {
 }  
 ```
 
-    Simple:
+Simple:
 
 ``` java
 private void doStuff() {  
@@ -399,7 +399,6 @@ The command-line switches for assertions can be used in various ways:
 Disable assertions in a single class, but keep them enabled for all others:
     
     java -ea -da:com.geeksanonymous.Foo
-
     java -ea -da:com.geeksanonymous...
 
 Enable assertions in general, but disable them in the package `com.geeksanonymous`, and all of its subpackages.

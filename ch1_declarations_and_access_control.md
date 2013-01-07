@@ -102,14 +102,7 @@ A class declaration with the public keyword gives all classes from all packages 
 
 #### Final Classes
 
-When used in a class declaration, the `final` keyword means the class can't be subclassed.
-`final` gives you the security that nobody can change the implementation out from under you.
-Many classes in the Java core libraries are final. For example, the String class.
-A benefit of having nonfinal classes is this scenario: Imagine you find a problem
-with a method in a class you're using, but you don't have the source code. So you
-can't modify the source to improve the method, but you can extend the class and
-override the method in your new subclass, and substitute the subclass everywhere
-the original superclass is expected. If the class is final, though, then you're stuck.
+When used in a class declaration, the `final` keyword means the class can't be subclassed. `final` gives you the security that nobody can change the implementation out from under you. Many classes in the Java core libraries are final. For example, the String class. A benefit of having nonfinal classes is this scenario: Imagine you find a problem with a method in a class you're using, but you don't have the source code. So you can't modify the source to improve the method, but you can extend the class and override the method in your new subclass, and substitute the subclass everywhere the original superclass is expected. If the class is final, though, then you're stuck.
 
 #### Abstract Classes
 

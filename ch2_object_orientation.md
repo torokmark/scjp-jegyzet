@@ -92,15 +92,15 @@ The rules:
 
 What happens when you want to use that `animal` reference variable to invoke a method that only class `Dog` has?
 
-    ``` java  
-    Animal animal = new Dog();  
-      
-    animal.playDead();  // try to do a Dog behavior ?  
-    cannot find symbol  
+``` java  
+Animal animal = new Dog();  
+  
+animal.playDead();  // try to do a Dog behavior ?  
+cannot find symbol  
 
-    Dog d = (Dog) animal; // casting the ref. var.  
-    d.playDead();    
-    ```
+Dog d = (Dog) animal; // casting the ref. var.  
+d.playDead();    
+```
 
 In this case is sometimes called a downcast, because we're casting down the inheritance tree to a more specific class.
 
@@ -133,21 +133,22 @@ Method overloading is not much more than name reuse. What you can't do is change
 
 You're allowed to change the return type in the overriding method as long as the new return type is a *subtype* of the declared return type of the overridden (superclass) method.
 
-    ``` java
-    class Alpha {  
-        Alpha doStuff(char c) {  
-            return new Alpha();  
-        }  
+``` java
+class Alpha {  
+    Alpha doStuff(char c) {  
+        return new Alpha();  
     }  
-      
-    class Beta extends Alpha {  
-        Beta doStuff(char c) { // legal override in Java 1.5  
-            return new Beta();  
-        }  
+}  
+  
+class Beta extends Alpha {  
+    Beta doStuff(char c) { // legal override in Java 1.5  
+        return new Beta();  
     }  
-    ```
+}  
+```
 
-    `javac -source 1.4 Beta.java`
+    javac -source 1.4 Beta.java
+
 
 ### Returning a Value
 
@@ -205,14 +206,14 @@ constructor. You're free to put in your own no-arg constructor.
 * Interfaces do not have constructors. Interfaces are not part of an object's inheritance tree.
 * The only way a constructor can be invoked is from within another constructor. You can't write code that actually calls a constructor as follows:
 
-    ``` java
-    class Horse {  
-        Horse() { } // constructor  
-        void doStuff() {  
-            Horse(); // calling the constructor - illegal!  
-        }  
+``` java
+class Horse {  
+    Horse() { } // constructor  
+    void doStuff() {  
+        Horse(); // calling the constructor - illegal!  
     }  
-    ```
+}  
+```
 
 ### Determine Whether a Default Constructor Will Be Created
 
@@ -242,18 +243,18 @@ The preceding rule means a constructor can never have both a call to `super()` a
 Because each of those calls must be the first statement in a constructor, you can't legally use both in the same constructor.
 only two constructors in the class both have calls to this(), and in fact you'll get exactly what you'd get if you typed the following method code:
 
-    ``` java
-    public void go() {  
-        doStuff();  
-    }  
-    public void doStuff() {  
-        go();  
-    }  
-    ```
+``` java
+public void go() {  
+    doStuff();  
+}  
+public void doStuff() {  
+    go();  
+}  
+```
 
 The stack explodes.
 
-    `Exception in thread "main" java.lang.StackOverflowError`
+    Exception in thread "main" java.lang.StackOverflowError
 
 
 ## Statics (Exam Objective 1.3)

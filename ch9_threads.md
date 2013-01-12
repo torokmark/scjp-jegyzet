@@ -78,4 +78,71 @@ code.
 > Another common way to think about this is that the Thread is the "worker," 
 > and the Runnable is the "job" to be done.
 
+``` java
+MyRunnable r = new MyRunnable();
+Thread t = new Thread(r); // Pass your Runnable to the Thread
+```
+
+The Runnable you pass to the Thread constructor is called the *target* or the *target Runnable*.
+You can pass a single Runnable instance to multiple Thread objects, so that the
+same Runnable becomes the target of multiple threads, as follows:
+
+``` java
+public class TestThreads {
+    public static void main (String [] args) {
+        MyRunnable r = new MyRunnable();
+        Thread foo = new Thread(r);
+        Thread bar = new Thread(r);
+        Thread bat = new Thread(r);
+    }
+}
+```
+
+The constructors we care about are:
+
+* Thread()
+* Thread(Runnable target)
+* Thread(Runnable target, String name)
+* Thread(String name)
+
+When a thread has been instantiated but not started the thread is said to be in the *new* state.
+At this stage, the thread is not yet considered to be *alive*. Once the `start()` method is called, 
+the thread is considered to be *alive*.
+A thread is considered *dead* (no longer *alive*) after the `run()` method completes.
+
+### Starting a Thread ###
+
+``` java
+t.start();
+```
+
+Prior to calling start() on a Thread instance, the thread is said to be in the *new* state as we said.
+What happens after you call `start()`?
+
+* A new thread of execution starts (with a new call stack).
+* The thread moves from the *new* state to the *runnable* state.
+* When the thread gets a chance to execute, its target `run()` method will run.
+
+#### Starting and Running Multiple Threads ####
+We already had two threads, because the `main()` method starts in a
+thread of its own, and then `t.start()` started a *second* thread.
+
+> *Each thread will start, and each thread will run to completion.*
+
+Within each thread, things will happen in a predictable order. But the actions
+of different threads can mix together in unpredictable ways.
+You don't know, for example, if one thread will run to completion before the others
+have a chance to get in or whether they'll all take turns nicely, or whether they'll do
+a combination of both. There is a way, however, to start a thread but tell it not to
+run until some other thread has finished. You can do this with the `join()` method.
+
+> *A thread is done being a thread when its target run() method completes.*  
+> *Once a thread has been started, it can never be started again.*
+
+If you have a reference to a Thread, and you call `start()`, it's started. If you call
+`start()` a second time, it will cause an exception (an IllegalThreadStateException).
+This happens whether or not the `run()` method has completed from the first `start()` call.
+
+#### The Thread Scheduler ####
+
 

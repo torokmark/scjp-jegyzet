@@ -75,7 +75,7 @@ class, you've split it into two classes — the Thread class for the *thread-spe
 and your Runnable implementation class for your *job-that-should-be-run-by-a-thread*
 code.
 
-> Another common way to think about this is that the Thread is the "worker," 
+> Another common way to think about this is that the Thread is the "worker,"   
 > and the Runnable is the "job" to be done.
 
 

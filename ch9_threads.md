@@ -201,6 +201,8 @@ state for several reasons, including because "the thread scheduler felt like it.
 
 ![Transitioning between thread states](https://raw.github.com/torokmark/scjp-jegyzet/master/images/ch9_threads_transitioning_between_thread_states.png)
 
+![Transitioning between thread states](https://github.com/torokmark/scjp-jegyzet/raw/master/images/ch9_threads_transitioning_between_thread_states.png)
+
 
 
 asdfasdfasfd

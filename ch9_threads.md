@@ -197,7 +197,7 @@ thread is in when the thread scheduler selects it (from the runnable pool) to
 be the currently executing process. A thread can transition out of a running
 state for several reasons, including because "the thread scheduler felt like it."
 
- ![Transitioning between thread states](https://github/torokmark/scjp-jegyzet/img/ch9_threads_transitioning_between_thread_states.png "Transitioning between thread states")
+ ![Transitioning between thread states](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
-
+asdfasdfasfd
 

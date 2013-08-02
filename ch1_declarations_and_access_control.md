@@ -268,7 +268,7 @@ The other BIG RULE, to understand about constructors is that they must have the 
 
 There are two types of variables in Java:
 
-* **Primitives** A primitive can be one of eight types: char, boolean, byte, short, int, long, double, or float.
+* **Primitives** A primitive can be one of eight types: `char`, `boolean`, `byte`, `short`, `int`, `long`, `double`, or `float`.
 * **Reference variables** A reference variable is used to refer to (or access) an object. A reference variable is declared to be of a specific type and  that type can never be changed. A reference variable can be used to refer to any object of the declared type, or of a *subtype* of the declared type (a compatible type).
 
 #### Declaring Primitives and Primitive Ranges

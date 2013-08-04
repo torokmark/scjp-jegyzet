@@ -344,7 +344,7 @@ Integer and Long provide a third toString() method. It's static, its first argum
 The Integer and Long wrapper classes let you convert numbers in base 10 to other bases.
 
 ### Autoboxing
-Autoboxing, auto-unboxing, boxing, and unboxing. Boxing and unboxing make using wrapper classes more .convenient.
+Autoboxing, auto-unboxing, boxing, and unboxing. Boxing and unboxing make using wrapper classes more convenient.
 Before Java 5:
 
 ``` java

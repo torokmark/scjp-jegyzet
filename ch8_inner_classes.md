@@ -277,7 +277,11 @@ class BigOuter {
 
 ``` java
 class BigOuter {   
-    static class Nest {void go() { System.out.println("hi"); } }   
+    static class Nest {
+        void go() { 
+            System.out.println("hi"); 
+        } 
+    }   
 }   
 class Broom {   
     static class B2 {

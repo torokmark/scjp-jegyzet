@@ -73,14 +73,14 @@ A string literal is a source code representation of a value of a String object.
 The only other nonprimitive type that has a literal representation is an array.
 
 #### Assignment Operators 
-Simply assign the stuff on the right side of the = to the variable on the left.
-Variables are just bit holders, with a designated type. You can have an int holder, a double holder, a Button holder, and even a String[] holder. Within that holder is a bunch of bits representing the value.
+Simply assign the stuff on the right side of the `=` to the variable on the left.
+Variables are just bit holders, with a designated type. You can have an `int` holder, a `double` holder, a `Button` holder, and even a `String[]` holder. Within that holder is a bunch of bits representing the value.
 
 A reference variable bit holder contains bits representing a way to get to the object.
 All we can say for sure is that the variable's value is *not* the object, but rather a value representing a specific object on the heap. Or `null`.
 
 #### Primitive Assignments 
-The most important point to remember is that a literal integer is always implicitly an int.
+The most important point to remember is that a literal integer is always implicitly an `int`.
 A byte-sized holder can't hold as many bits as an int-sized holder.
 
 ``` java
@@ -95,7 +95,7 @@ byte c = b + c;
 ```
 
 Won't compile! `...possible loss of precision...`
-We tried to assign the sum of two bytes to a byte variable, the result of which (11) was definitely small enough to fit into a byte, but the compiler didn't care. It knew the rule about int-or-smaller expressions always resulting in an int. It would have compiled if we'd done the *explicit* cast:
+We tried to assign the sum of two bytes to a byte variable, the result of which (11) was definitely small enough to fit into a byte, but the compiler didn't care. It knew the rule about int-or-smaller expressions always resulting an int. It would have compiled if we'd done the *explicit* cast:
 
 ``` java
 byte c = (byte) (a + b);

@@ -20,7 +20,7 @@ class MyOuter {
 If you compile it: `%javac MyOuter.java`, you'll end up with *two* class files: `MyOuter.class`, `MyOuter$MyInner.class`.
 You can't say 
     
-    %java MyOuter$MyInner
+    > java MyOuter$MyInner
 
 in hopes of running the `main()` method of the inner class, because a *regular* inner class can't have static declarations of any kind. *The only way you can access the inner class is through a live instance of the outer class!*
 
@@ -93,13 +93,13 @@ MyInner mi = new MyInner();
 MyOuter.MyInner
 ```
 
-    To instantiate it, you must use a reference to the outer class:
+To instantiate it, you must use a reference to the outer class:
 
 ``` java
 new MyOuter().new MyInner(); or outerObjRef.new MyInner();
 ```
     
-    if you already have an instance of the outer class.
+If you already have an instance of the outer class.
 
 ### Referencing the Inner or Outer Instance from Within the Inner Class ###
 
@@ -137,7 +137,7 @@ class MyOuter {
 ```
 
 * To reference the inner class instance itself, from *within* the inner class code, use `this`.
-* To reference the "*outer* `this`" (the outer class instance) from within the inner class code, use `NameOfOuterClass.this` (example, `MyOuter.this`).
+* To reference the " *outer* `this` " (the outer class instance) from within the inner class code, use `NameOfOuterClass.this` (example, `MyOuter.this`).
 
 #### Member Modifiers Applied to Inner Classes ####
 
@@ -172,8 +172,8 @@ class MyOuter2 {
 To *use* the inner class you must make an instance of it somewhere *within the method but below the inner class definition*.
 
 ### What a Method-Local Inner Object Can and Can't Do ###
-*A method-local inner class can be instantiated only within the method where the inner class is defined. he inner class object cannot use the local variables of the method the inner class is in.*
-the local variables aren't guaranteed to be alive as long as the method-local inner class object, the inner class object can't use them. *Unless the local variables are marked `final`!*
+*A method-local inner class can be instantiated only within the method where the inner class is defined. The inner class object cannot use the local variables of the method the inner class is in.*
+The local variables aren't guaranteed to be alive as long as the method-local inner class object, the inner class object can't use them. *Unless the local variables are marked `final`!*
 You can't, for example, mark a method-local inner class `public`, `private`, `protected`, `static`, `transient`, and the like. For the purpose of the exam, the only modifiers you can apply to a method-local inner class are `abstract` or `final`.
 
 A local class declared in a `static` method has access to only `static` members of the enclosing class, since there is no associated instance of the enclosing class.
@@ -242,7 +242,7 @@ class Food {
 
 *Anonymous interface implementers can implement only one interface.*
 
-### Argument-Defi ned Anonymous Inner Classes ###
+### Argument-Defined Anonymous Inner Classes ###
 
 ``` java
 class MyWonderfulClass {   
@@ -280,7 +280,11 @@ class BigOuter {
     static class Nest {void go() { System.out.println("hi"); } }   
 }   
 class Broom {   
-    static class B2 {void goB2() { System.out.println("hi 2"); } }   
+    static class B2 {
+        void goB2() { 
+            System.out.println("hi 2"); 
+        } 
+    }
     public static void main(String[] args) {   
         BigOuter.Nest n = new BigOuter.Nest(); // both class names   
         n.go();   

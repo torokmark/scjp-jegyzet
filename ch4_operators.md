@@ -54,7 +54,7 @@ You can use either the == operator or the `equals()` method to determine if two 
 ### instanceof Comparison ###
 The `instanceof` operator is used for object reference variables only, and you can use it to check whether an object is of a particular type.
 
-#### instanceof Compiler Error #### 
+#### instanceof Compiler Error ####
 You can't use the `instanceof` operator to test across two different class hierarchies.
 
 ``` java

@@ -152,9 +152,7 @@ can ever be executing at one time. And it's the thread scheduler that decides *w
 thread will actually *run*.
 Any thread in the *runnable* state can be chosen by the scheduler to be the one and
 only running thread. 
-Queue behavior means that when a thread has finished with its "turn", it moves to the end of the line of the
-runnable pool and waits until it eventually gets to the front of the line, where it can
-be chosen again.
+Queue behavior means that when a thread has finished with its "turn", it moves to the end of the line of the runnable pool and waits until it eventually gets to the front of the line, where it can be chosen again.
 Although we don't control the thread scheduler, we can sometimes influence it.
 
 #### Methods from the java.lang.Thread Class ####

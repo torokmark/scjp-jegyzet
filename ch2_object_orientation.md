@@ -15,6 +15,21 @@ If you want maintainability, flexibility, and extensibility, your design must in
 Every class in Java is a subclass of class Object, (except of course class Object itself).
 You'll always have an equals method, a clone method, notify, wait, and others, available to use.
 
+The methods of the `Object` class can be grouped as follows:
+
+* Methods that are usually overriden
+    * `toString`
+    * `equal`
+    * `hashCode`
+* Methods that are responsible for synchronization
+    * `wait` -  Three overloaded wait methods belong to the `Object` class
+    * `notify`
+    * `notifyAll`
+* Methods that we never override
+    * `clone` - sometimes (later we are returning to this topic)
+    * `finalize`
+    * `getClass`
+
 You can create inheritance relationships in Java by extending a class.
 
 * To promote code reuse

@@ -22,7 +22,7 @@ The methods of the `Object` class can be grouped as follows:
     * `equal`
     * `hashCode`
 * Methods that are responsible for synchronization
-    * `wait` -  Three overloaded wait methods belong to the `Object` class
+    * `wait` -  Three overloaded `wait` methods belong to the `Object` class
     * `notify`
     * `notifyAll`
 * Methods that we never override

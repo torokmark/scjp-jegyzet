@@ -2,7 +2,7 @@
 
 ## Encapsulation (Exam Objective 5.1)
 
-Want to hide implementation details behind a public programming interface. By interface, we mean the set of accessible methods your code makes available for other code to call—in other words, your code's API. By hiding implementation details, you can rework your method code without forcing a change in the code that calls your changed method.
+Want to hide implementation details behind a public programming interface. By interface, we mean the set of accessible methods your code makes available for other code to callï¿½in other words, your code's API. By hiding implementation details, you can rework your method code without forcing a change in the code that calls your changed method.
 
 If you want maintainability, flexibility, and extensibility, your design must include encapsulation. 
 
@@ -19,7 +19,7 @@ The methods of the `Object` class can be grouped as follows:
 
 * Methods that are usually overriden
     * `toString`
-    * `equal`
+    * `equals`
     * `hashCode`
 * Methods that are responsible for synchronization
     * `wait` -  Three overloaded `wait` methods belong to the `Object` class
